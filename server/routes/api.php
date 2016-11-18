@@ -13,6 +13,21 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::get('/getBooks', function () {
+  $books = [
+    [
+      "id" => 1,
+      "title" => "Scrisoara a II-a",
+    ],
+    [
+      "id" => 2,
+      "title" => "Ursul pacalit de vulpe",
+    ],
+    [
+      "id" => 3,
+      "title" => "Pacala",
+    ],
+  ];
+
+  return $books;
+})->middleware(['api','cors']);

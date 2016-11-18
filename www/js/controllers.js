@@ -41,19 +41,24 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 },
-    { title: 'Ionel Lupu', id: 7 },
-    { title: 'Larisa Dumitru', id: 8 } ,
-    { title: 'Cristescu Marius', id: 9},
-    { title: 'Iolu Alexandra Daniela', id: 10}
-  ];
+.controller('PlaylistsCtrl', function($scope ,$http) {
+  // $scope.playlists = [
+  //   { title: 'Reggae', id: 1 },
+  //   { title: 'Chill', id: 2 },
+  //   { title: 'Dubstep', id: 3 },
+  //   { title: 'Indie', id: 4 },
+  //   { title: 'Rap', id: 5 },
+  //   { title: 'Cowbell', id: 6 },
+  //   { title: 'Ionel Lupu', id: 7 },
+  //   { title: 'Larisa Dumitru', id: 8 } ,
+  //   { title: 'Cristescu Marius', id: 9},
+  //   { title: 'Iolu Alexandra Daniela', id: 10}
+  // ];
+  
+  $http.get('http://localhost:8000/api/getBooks').then(function(resp){
+    $scope.books = resp.data;
+  })
+  
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
