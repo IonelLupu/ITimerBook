@@ -51,7 +51,8 @@ angular.module('starter.controllers', [])
     { title: 'Cowbell', id: 6 },
     { title: 'Ionel Lupu', id: 7 },
     { title: 'Larisa Dumitru', id: 8 } ,
-    { title: 'Cristescu Marius', id: 9}
+    { title: 'Cristescu Marius', id: 9},
+    { title: 'Iolu Alexandra Daniela', id: 10}
   ];
 })
 
