@@ -1,25 +1,53 @@
-<ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
-  </ion-header-bar>
+<ion-view view-title="Autentificare">
   <ion-content>
-    <form ng-submit="doLogin()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
-      </div>
-    </form>
+
+    <head>
+    <style>
+
+      input[type=text], select {
+        width: 40%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 3px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      body{
+        text-align: center;
+      }
+      input[type=submit]{
+       padding: 10px;
+        width: 30%;
+      }
+
+    </style>
+
+    </head>
+
+    <body>
+    <br><br>
+    <br>
+    <br><br>
+    <h1>ITimerBook</h1>
+    <br><br><br> <br>
+    <div>
+      <form>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <br>
+        <label for="password">Parola:</label>
+        <input type="text" id="password" name="password">
+        <br><br>
+        <input type="submit" value="Autentificare">
+        <br><br>
+        <input type="submit" value="Inregistrare">
+      </form>
+    </div>
+
+
+    </body>
+
+
   </ion-content>
-</ion-modal-view>
+</ion-view>
