@@ -1,4 +1,4 @@
 
-app.controller('HomeController', function($scope, $stateParams) {
+app.controller('LoginController', function($scope, $stateParams) {
   
 });
