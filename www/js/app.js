@@ -21,8 +21,8 @@ var app = angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
 })
-  
-  
+
+
   // .state('app.single', {
   //   url: '/playlists/:playlistId',
   //   views: {
@@ -48,7 +48,16 @@ var app = angular.module('starter', ['ionic', 'starter.controllers'])
           templateUrl: 'templates/home.html',
           controller: 'HomeController'
         }
-      }
+      }})
+
+        .state('app.login', {
+          url: '/login',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/login.html',
+              controller: 'LoginController'
+            }
+          }
 
   });
   // if none of the above states are matched, use this as the fallback
