@@ -6,3 +6,5 @@ platforms/
 plugins/
 .idea/
 resources/
+
+server/database/database.sqlite
