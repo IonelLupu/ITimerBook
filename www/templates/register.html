@@ -1,0 +1,52 @@
+<ion-view view-title="Inregistrare">
+    <ion-content>
+
+
+        <p style="  margin-top: 80px;"></p>
+        <h1 style=" text-align: center">ITimerBook</h1>
+        <p style="  margin-top: 50px;"> </p>
+        <div style="padding: 20px" >
+            <form ng-submit="registerUser(data)">
+                <label for="firstName" style="padding: 15px">Prenume:</label>
+                <input type="text" id="firstName" name="fistName" ng-model="data.firstName">
+                <br>
+
+                <label for="lastName" style="padding: 25px">Nume:</label>
+                <input type="text" id="lastName" name="lastName" ng-model="data.lastName">
+                <br>
+
+                <label for="email" style="padding: 25px">E-mail:</label>
+                <input type="text" id="email" name="email" ng-model="data.email">
+                <br>
+
+                <label for="password" style="padding: 25px">Parola:</label>
+                <input type="text" id="password" name="password" ng-model="data.password ">
+                <br>
+
+                <label for="password-repeat" style="padding: 0px">Repeta parola:</label>
+                <input type="text" id="password-repeat" name="password-repeat" ng-model="data.password_repeat">
+                <br>
+
+                <label for="gender" style="padding: 20px">Sex:</label> <br>
+                Femeie <input type="radio" id="ggender" name="gender" ng-model="data.gender" value="girl">
+                Barbat <input type="radio" id="gender" name="gender" ng-model="data.gender" value="boy">
+                <br> <br> <br>
+
+                Categorii: <br>
+                <input type="checkbox" value="category1" ng-model="data.categories.category1"> Categorie 1<br>
+                <input type="checkbox" value="category2" ng-model="data.categories.category2"> Categorie 2<br>
+                <input type="checkbox" value="category3" ng-model="data.categories.category3"> Categorie 3<br>
+                <input type="checkbox" value="category4" ng-model="data.categories.category4"> Categorie 4<br>
+                <input type="checkbox" value="category5" ng-model="data.categories.category5"> Categorie 5<br>
+                <input type="checkbox" value="category6" ng-model="data.categories.category6"> Categorie 6<br>
+                <input type="checkbox" value="category7" ng-model="data.categories.category7"> Categorie 7<br>
+                <input type="checkbox" value="category8" ng-model="data.categories.category8"> Categorie 8<br>
+                <input type="checkbox" value="category9" ng-model="data.categories.category9"> Categorie 9<br>
+                <input type="checkbox" value="category10" ng-model="data.categories.category10"> Categorie 10<br>
+                <br><br>
+                <input type="submit" name="submit" value="Inregistrare" style="text-align: center">
+            </form>
+        </div>
+
+    </ion-content>
+</ion-view>
