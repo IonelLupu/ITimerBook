@@ -1,10 +1,28 @@
 app.controller('HomeController', function($scope, $stateParams, $ionicPopup , Server) {
   
-	$scope.books = [];
+	$scope.books = [
+
+		{
+			title: "dkfsdf",
+			author: "alsj",
+			pages: 54
+		},
+		{
+			title: "dkfsdf",
+			author: "alsj",
+			pages: 54
+		},
+		{
+			title: "dkfsdf",
+			author: "alsj",
+			pages: 54
+		},
+
+	];
 	
-	Server.get('books').then(function(resp){
-		$scope.books = resp.data;
-	})
+	// Server.get('books').then(function(resp){
+	// 	$scope.books = resp.data;
+	// })
 
 	// Triggered on a button click, or some other target
 	$scope.showPopup = function() {
@@ -12,7 +30,7 @@ app.controller('HomeController', function($scope, $stateParams, $ionicPopup , Se
 
 		// An elaborate, custom popup
 		var myPopup = $ionicPopup.show({
-			template: '<input type="number" ng-model="data.wifi">',
+			template: '<input type="number" ng-model="data.pages">',
 			title: 'Introduceti numar pagini',
 			scope: $scope,
 			buttons: [
@@ -21,12 +39,7 @@ app.controller('HomeController', function($scope, $stateParams, $ionicPopup , Se
 					text: '<b>Salveaza</b>',
 					type: 'button-positive',
 					onTap: function (e) {
-						if (!$scope.data.wifi) {
-							//don't allow the user to close unless he enters wifi password
-							e.preventDefault();
-						} else {
-							return $scope.data.wifi;
-						}
+						console.log($scope.data.pages)
 					}
 				}
 			]
