@@ -71,7 +71,30 @@ var app = angular.module('starter', ['ionic', 'starter.controllers'])
 				}
 			}
 
-		});
+		})
+
+
+
+            .state('app.addBook', {
+                url: '/addBook',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/addBook.html',
+                        controller: 'AddBookController'
+                    }
+                }
+
+            })
+            .state('app.competitionPresentation', {
+                url: '/competitionPresentation',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/competitionPresentation.html',
+                        controller: 'competitionPresentation'
+                    }
+                }
+
+            });
 		// if none of the above states are matched, use this as the fallback
 		$urlRouterProvider.otherwise('/app/');
 	});
