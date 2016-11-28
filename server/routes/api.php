@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/getBooks', function () {
+Route::get('/books', function () {
   $books = [
     [
       "id" => 1,
@@ -31,3 +31,14 @@ Route::get('/getBooks', function () {
 
   return $books;
 })->middleware(['api','cors']);
+
+
+Route::group(['middleware' => ['api','cors']], function () {
+
+    //Route::post('register','RegisterController@create');
+    Route::post('register',function(Request $request){
+        return "sedfghjrdtg";
+    });
+//    Route::get('register','Controller@test');
+
+});

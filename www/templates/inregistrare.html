@@ -25,100 +25,39 @@
         </style>
 
 
-
-        <?php
-// define variables and set to empty values
-$nameErr = $emailErr = $genderErr = $websiteErr = "";
-$name = $email = $gender = $comment = $website = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["nume"])) {
-    $numeErr = "Numele este obligatoriu.";
-  } else {
-    $nume = test_input($_POST["nume"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$nume)) {
-      $numeErr = "Sunt permise doar litere si spatii.";
-    }
-  }
-
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["prenume"])) {
-    $prenumeErr = "Prenumele este obligatoriu.";
-  } else {
-    $prenume = test_input($_POST["prenume"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$prenume)) {
-      $prenumeErr = "Sunt permise doar litere si spatii.";
-    }
-  }
-
-  if (empty($_POST["email"])) {
-    $emailErr = "Email-ul este obligatoriu";
-  } else {
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Format invalid";
-    }
-  }
-
-
-  if (empty($_POST["gender"])) {
-    $genderErr = "Sexul este obligatoriu";
-  } else {
-    $gender = test_input($_POST["gender"]);
-  }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
-
-
-
-
         <p style="  margin-top: 80px;"></p>
         <h1>ITimerBook</h1>
         <p style="  margin-top: 80px;"> </p>
         <div>
-            <form>
-                <label for="nume">Nume:</label>
-                <input type="text" id="nume" name="nume">
+            <form ng-submit="registerUser(data)">
+                <label for="name">Nume:</label>
+                <input type="text" id="name" name="nume" ng-model="data.lastName">
                 <span class="error">* <?php echo $nameErr;?></span>
                 <br>
                 <label for="prenume">Prenume:</label>
-                <input type="text" id="prenume" name="prenume">
+                <input type="text" id="prenume" name="prenume" ng-model="data.firstName">
                 <span class="error">* <?php echo $prenumeErr;?></span>
                 <br>
                 <label for="email">E-mail:</label>
-                <input type="text" id="email" name="email">
+                <input type="text" id="email" name="email" ng-model="data.email">
                 <span class="error">* <?php echo $emailErr;?></span>
                 <br>
                 <label for="pass">Parola:</label>
-                <input type="text" id="pass" name="pass">
+                <input type="text" id="pass" name="pass" ng-model="data.password ">
                 <span class="error">* <?php echo $passErr;?></span>
                 <br>
                 <label for="pass">Repeta parola:</label>
-                <input type="text" id="pass" name="pass">
+                <input type="text" id="pass" name="pass" ng-model="data.password_repeat">
                 <span class="error">* <?php echo $passErr;?></span>
                 <br>
                 <label for="sex">Sex:</label>
-                Femeie<input type="radio" id="sex" name="fsex">
-                Barbat<input type="radio" id="sex" name="bsex">
+                Femeie<input type="radio" id="sex" name="sex" ng-model="data.sex" value="girl">
+                Barbat<input type="radio" id="sex" name="sex" ng-model="data.sex" value="boy">
                 <span class="error">* <?php echo $sexErr;?></span>
                 <br>
                 Categorii: <br>
-                <input type="checkbox" name="categorie" value="categorie1"> Categorie 1<br>
-                <input type="checkbox" name="categorie" value="categorie2"> Categorie 2<br>
-                <input type="checkbox" name="categorie" value="categorie3"> Categorie 3<br>
-                <input type="checkbox" name="categorie" value="categorie4"> Categorie 4<br>
-                <input type="checkbox" name="categorie" value="categorie5"> Categorie 5<br>
-                <input type="checkbox" name="categorie" value="categorie6" checked="checked"> Categorie 6<br>
+                <input type="checkbox" value="categorie1" ng-model="data.categories.category1"> Categorie 1<br>
+                <input type="checkbox" value="categorie2" ng-model="data.categories.category2"> Categorie 2<br>
                 <br><br>
                 <input type="submit" name="submit" value="Inregitrare">
             </form>
