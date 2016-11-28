@@ -90,7 +90,7 @@ var app = angular.module('starter', ['ionic', 'starter.controllers'])
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/competitionPresentation.html',
-                        controller: 'competitionPresentation'
+                        controller: 'CompetitionPresentationController'
                     }
                 }
 
