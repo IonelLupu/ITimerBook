@@ -66,7 +66,7 @@ var app = angular.module('starter', ['ionic', 'starter.controllers'])
 				url: '/inregistrare',
 			views: {
 				'menuContent': {
-					templateUrl: 'templates/inregistrare.html',
+					templateUrl: 'templates/register.html',
 					controller: 'RegisterController'
 				}
 			}
