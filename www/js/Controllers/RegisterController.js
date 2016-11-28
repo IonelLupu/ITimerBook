@@ -1,11 +1,12 @@
 
-app.controller('RegisterController', function($scope, $stateParams, Server) {
+app.controller('RegisterController', function($scope, $state, $stateParams, toastr, Server) {
 
 
     $scope.registerUser = function(data){
 
-        Server.post('register',data).then(function(resp){
-            console.log(resp);
+        Server.post('register',data).then(function(){
+	        toastr.success('Ai fost inregistrat cu success');
+            $state.go('login');
         })
 
     }

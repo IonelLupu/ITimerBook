@@ -1,4 +1,4 @@
-rtisan serve# ITimerBook
+# ITimerBook
 
 
 [Documentation Ionic](http://ionicframework.com/docs/)

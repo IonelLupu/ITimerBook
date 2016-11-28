@@ -11,8 +11,21 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function test()
+    public function response($data)
     {
-        return "test text";
+        return response()->json($data, 200);
     }
+
+    public function error($data)
+    {
+        return response()->json($data, 401);
+    }
+
+    public function internalError($data)
+    {
+        return response()->json([
+            "server" => [$data]
+        ], 500);
+    }
+
 }

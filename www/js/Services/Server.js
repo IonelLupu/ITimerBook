@@ -1,14 +1,50 @@
-app.service('Server', function($http) {
-
-    var serverURL = "http://localhost:8000/api/";
-
-    this.post = function (route,data) {
-        return $http.post(serverURL+route,data)
-    }
-
-    this.get = function (route) {
-        return $http.get(serverURL+route)
-    }
-
-
+app.service('Server', function ($http, toastr) {
+	var Server = this;
+	
+	var serverURL = "http://localhost:8000/api/";
+	
+	function request(route, data, method) {
+		var loginToken = Server.getLoginToken();
+		return $http({
+			method : method,
+			url    : serverURL + route,
+			headers: {
+				'Content-Type' : 'application/json',
+				'Accept'       : 'application/json',
+				'Authorization': 'Bearer ' + loginToken
+			},
+			data   : data
+		}).error(function (resp) {
+			var firstError = resp[Object.keys(resp)[0]];
+			if( firstError.constructor == Array ){
+				//console.error("server error ->",resp);
+				toastr.error(firstError[0]);
+			}
+		});
+	}
+	
+	this.post = function (route, data) {
+		return request(route, data, "POST")
+	};
+	
+	this.get = function (route) {
+		return request(route, '', "GET")
+	};
+	
+	this.setLoginToken = function (token) {
+		localStorage.setItem('_token', token);
+	};
+	
+	this.getLoginToken = function () {
+		return localStorage.getItem('_token');
+	};
+	
+	this.setUser = function (user) {
+		localStorage.setItem('_user',JSON.stringify(user));
+	};
+	
+	this.getUser = function () {
+		return JSON.parse(localStorage.getItem('_user'));
+	};
+	
 });

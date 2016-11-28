@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('starter', ['ionic', 'starter.controllers'])
+var app = angular.module('starter', ['ionic', 'starter.controllers','toastr'])
 	
 	.run(function ($ionicPlatform) {
 		$ionicPlatform.ready(function () {
@@ -36,74 +36,62 @@ var app = angular.module('starter', ['ionic', 'starter.controllers'])
 		$stateProvider
 			
 			.state('app', {
-				url: '/app',
-				abstract: true,
+				url        : '/app',
+				abstract   : true,
 				templateUrl: 'templates/menu.html',
-				controller: 'AppCtrl'
+				controller : 'AppCtrl'
 			})
 			.state('app.home', {
-				url: '/',
+				url  : '/',
 				views: {
 					'menuContent': {
 						templateUrl: 'templates/home.html',
-						controller: 'HomeController'
+						controller : 'HomeController'
 					}
 				}
 			})
 			
-			.state('app.login', {
-			url: '/login',
-			views: {
-				'menuContent': {
-					templateUrl: 'templates/login.html',
-					controller: 'LoginController'
+			.state('login', {
+				url        : '/login',
+				templateUrl: 'templates/login.html',
+				controller : 'LoginController'
+			})
+			
+			.state('register', {
+				url  : '/register',
+				templateUrl: 'templates/register.html',
+				controller : 'RegisterController'
+			})
+			
+			.state('app.addBook', {
+				url  : '/addBook',
+				views: {
+					'menuContent': {
+						templateUrl: 'templates/addBook.html',
+						controller : 'AddBookController'
+					}
 				}
-			}
-
-		})
-
-		.state('app.inregistrare', {
-				url: '/inregistrare',
-			views: {
-				'menuContent': {
-					templateUrl: 'templates/register.html',
-					controller: 'RegisterController'
+				
+			})
+			.state('app.competitionPresentation', {
+				url  : '/competitionPresentation',
+				views: {
+					'menuContent': {
+						templateUrl: 'templates/competitionPresentation.html',
+						controller : 'CompetitionPresentationController'
+					}
 				}
-			}
-
-		})
-
-
-
-            .state('app.addBook', {
-                url: '/addBook',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/addBook.html',
-                        controller: 'AddBookController'
-                    }
-                }
-
-            })
-            .state('app.competitionPresentation', {
-                url: '/competitionPresentation',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/competitionPresentation.html',
-                        controller: 'CompetitionPresentationController'
-                    }
-                }
-
-            });
+				
+			});
 		// if none of the above states are matched, use this as the fallback
-		$urlRouterProvider.otherwise('/app/');
+		$urlRouterProvider.otherwise('/login');
 	});
 app.config(['$httpProvider', function ($httpProvider) {
 	//Reset headers to avoid OPTIONS request (aka preflight)
 	$httpProvider.defaults.headers.common = {};
-	$httpProvider.defaults.headers.post = {};
-	$httpProvider.defaults.headers.put = {};
-	$httpProvider.defaults.headers.patch = {};
-	$httpProvider.defaults.useXDomain = true;
+	$httpProvider.defaults.headers.post   = {};
+	$httpProvider.defaults.headers.put    = {};
+	$httpProvider.defaults.headers.patch  = {};
+	$httpProvider.defaults.useXDomain     = true;
 	delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);

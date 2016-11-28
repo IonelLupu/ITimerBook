@@ -13,33 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/books', function () {
-    $books = [
-        [
-            "id" => 1,
-            "title" => "Scrisoara a II-a",
-        ],
-        [
-            "id" => 2,
-            "title" => "Ursul pacalit de vulpe",
-        ],
-        [
-            "id" => 3,
-            "title" => "Pacala",
-        ],
-    ];
+Route::group(['middleware' => ['cors']], function () {
 
-    return $books;
-})->middleware(['api', 'cors']);
+    Route::post('register','Auth\AuthController@register');
+    Route::post('auth','Auth\AuthController@authenticate');
 
 
-Route::group(['middleware' => ['api', 'cors']], function () {
-
-    //Route::post('register','RegisterController@create');
-    Route::post('register', function (Request $request) {
-        return "sedfghjrdtg";
+    Route::group(['middleware' => ['jwt.auth']], function () {
+        Route::get('user','UserController@getUser');
+        Route::get('books','UserController@getBooks');
     });
-
-    Route::get('books','UserController@getBooks');
 
 });

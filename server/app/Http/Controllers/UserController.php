@@ -7,8 +7,12 @@ use App\Book;
 
 class UserController extends Controller
 {
+    public function getUser()
+    {
+        return \Auth::user();
+    }
     public function getBooks()
     {
-        return Book::all();
+        return $this->response(Book::all());
     }
 }
