@@ -14,31 +14,32 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/books', function () {
-  $books = [
-    [
-      "id" => 1,
-      "title" => "Scrisoara a II-a",
-    ],
-    [
-      "id" => 2,
-      "title" => "Ursul pacalit de vulpe",
-    ],
-    [
-      "id" => 3,
-      "title" => "Pacala",
-    ],
-  ];
+    $books = [
+        [
+            "id" => 1,
+            "title" => "Scrisoara a II-a",
+        ],
+        [
+            "id" => 2,
+            "title" => "Ursul pacalit de vulpe",
+        ],
+        [
+            "id" => 3,
+            "title" => "Pacala",
+        ],
+    ];
 
-  return $books;
-})->middleware(['api','cors']);
+    return $books;
+})->middleware(['api', 'cors']);
 
 
-Route::group(['middleware' => ['api','cors']], function () {
+Route::group(['middleware' => ['api', 'cors']], function () {
 
     //Route::post('register','RegisterController@create');
-    Route::post('register',function(Request $request){
+    Route::post('register', function (Request $request) {
         return "sedfghjrdtg";
     });
-//    Route::get('register','Controller@test');
+
+    Route::get('books','UserController@getBooks');
 
 });
