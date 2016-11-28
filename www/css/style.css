@@ -1,1 +1,16 @@
 /* Empty. Add your own CSS if you like */
+input[type=text], select {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 20px;
+    display: inline-block;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]{
+    padding: 10px;
+    width: 30%;
+    text-align: center;
+}
