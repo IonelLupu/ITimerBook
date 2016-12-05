@@ -11,4 +11,6 @@ app.controller('RegisterController', function($scope, $state, $stateParams, toas
 
     }
 
+    if(Server.getUser())
+        $state.go('app.home');
 });

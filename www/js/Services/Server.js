@@ -45,7 +45,7 @@ app.service('Server', function ($http, toastr) {
 	
 	this.getUser = function () {
 		var user = localStorage.getItem('_user')
-		if( user != 'undefined' ){
+		if( user && user != 'undefined' ){
 			return JSON.parse(user);
 		}
 		return null;
