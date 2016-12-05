@@ -2,37 +2,78 @@
     <ion-content>
 
 
+        <style>
+
+            input[type=text],input[type=number], select {
+                width: 40%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 3px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+
+            }
+            body{
+                text-align: center;
+            }
+            input[type=submit]{
+                padding: 10px;
+                width: 30%;
+            }
+
+        </style>
+
         <p style="  margin-top: 80px;"></p>
         <h1 style=" text-align: center">ITimerBook</h1>
-        <p style="  margin-top: 50px;"> </p>
-        <div style="padding: 20px" >
-            <form ng-submit="registerUser(data)">
-                <label for="firstName" style="padding: 15px">Prenume:</label>
-                <input type="text" id="firstName" name="fistName" ng-model="data.firstName">
+
+
+        <p style="  margin-top: 70px;"> </p>
+        <div>
+            <form>
+
+                <label for="firstname">Prenume</label>
+                <div class="text:align" >
+                    <input type="text" id="firstname" name="firstname" ng-model="data.firstName">
+                </div>
+
                 <br>
 
-                <label for="lastName" style="padding: 25px">Nume:</label>
-                <input type="text" id="lastName" name="lastName" ng-model="data.lastName">
+                <label for="lastname">Nume</label>
+                <div class="text:align" >
+                    <input type="text" id="lastname" name="lastname" ng-model="data.lastName">
+                </div>
+
                 <br>
 
-                <label for="email" style="padding: 25px">E-mail:</label>
-                <input type="text" id="email" name="email" ng-model="data.email">
+                <label for="email">E-mail</label>
+                <div class="text:align" >
+                    <input type="text" id="email" name="email" ng-model="data.email">
+                </div>
+
                 <br>
 
-                <label for="password" style="padding: 25px">Parola:</label>
-                <input type="text" id="password" name="password" ng-model="data.password ">
+                <label for="password">Parola</label>
+                <div class="text:align" >
+                    <input type="text" id="password" name="password" ng-model="data.password ">
+                </div>
+
                 <br>
 
-                <label for="password-repeat" style="padding: 0px">Repeta parola:</label>
-                <input type="text" id="password-repeat" name="password-repeat" ng-model="data.password_confirmation">
+                <label for="repeat-password">Repeta parola</label>
+                <div class="text:align" >
+                    <input type="text" id="repeat-password" name="repeat-password" ng-model="data.password_confirmation">
+                </div>
+
+                <label for="gender">Sex</label>
+                <div class="text:align" >
+                   Femeie <input type="radio" id="fgender" name="gender" ng-model="data.gender" value="girl"> <br>
+                   Barbat <input type="radio" id="gender" name="gender" ng-model="data.gender" value="boy"> <br>
+                </div>
                 <br>
 
-                <label for="gender" style="padding: 20px">Sex:</label> <br>
-                Femeie <input type="radio" id="ggender" name="gender" ng-model="data.gender" value="girl">
-                Barbat <input type="radio" id="gender" name="gender" ng-model="data.gender" value="boy">
-                <br> <br> <br>
-
-                Categorii: <br>
+      <!--          Categorii: <br>
+                <div class="text:align" >
                 <input type="checkbox" value="category1" ng-model="data.categories.category1"> Categorie 1<br>
                 <input type="checkbox" value="category2" ng-model="data.categories.category2"> Categorie 2<br>
                 <input type="checkbox" value="category3" ng-model="data.categories.category3"> Categorie 3<br>
@@ -42,9 +83,26 @@
                 <input type="checkbox" value="category7" ng-model="data.categories.category7"> Categorie 7<br>
                 <input type="checkbox" value="category8" ng-model="data.categories.category8"> Categorie 8<br>
                 <input type="checkbox" value="category9" ng-model="data.categories.category9"> Categorie 9<br>
-                <input type="checkbox" value="category10" ng-model="data.categories.category10"> Categorie 10<br>
-                <br><br>
-                <input type="submit" name="submit" value="Inregistrare" style="text-align: center">
+                <input type="checkbox" value="category10" ng-model="data.categories.category10">Categorie 10<br>
+                </div>
+                <br><br>-->
+
+<!--                <table style="width:85%">
+                     
+                    <tr ng-repeat="category in categories">
+                        <td>
+                            <p>
+                                <b>{{ category.name }}&nbsp &nbsp &nbsp &nbsp</b>
+                                <b>&nbsp &nbsp &nbsp &nbsp</b>
+                            </p>
+
+                    </tr>-->
+
+                </table>
+
+                <p style="  margin-top: 20px;">
+                    <input type="submit" value="Inregistrare">
+
             </form>
         </div>
 

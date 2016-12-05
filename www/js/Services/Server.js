@@ -15,9 +15,9 @@ app.service('Server', function ($http, toastr) {
 			},
 			data   : data
 		}).error(function (resp) {
+			console.error("server error ->",resp);
 			var firstError = resp[Object.keys(resp)[0]];
 			if( firstError.constructor == Array ){
-				//console.error("server error ->",resp);
 				toastr.error(firstError[0]);
 			}
 		});

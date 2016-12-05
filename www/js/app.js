@@ -81,8 +81,19 @@ var app = angular.module('starter', ['ionic', 'starter.controllers','toastr'])
 						controller : 'CompetitionPresentationController'
 					}
 				}
-				
+
+			})
+			.state('app.competition', {
+				url  : '/competition',
+				views: {
+					'menuContent': {
+						templateUrl: 'templates/competition.html',
+						controller : 'CompetitionController'
+					}
+				}
+
 			});
+
 		// if none of the above states are matched, use this as the fallback
 		$urlRouterProvider.otherwise('/login');
 	});
