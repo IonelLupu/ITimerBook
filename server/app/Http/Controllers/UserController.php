@@ -14,7 +14,7 @@ class UserController extends Controller
 
     public function getBooks()
     {
-        return $this->response(Book::all());
+        return $this->response( $this->user->books );
     }
 
 

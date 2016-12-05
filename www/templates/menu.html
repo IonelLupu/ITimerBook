@@ -25,7 +25,7 @@
 
 			<div class="card profile-card">
 				<div class="item item-text-wrap text-center">
-					<h2>Nume Prenume</h2>
+					<h2>{{ user.firstName }} {{ user.lastName }}</h2>
 					<h1><span class="ion-person"></span></h1>
 					<h2>
 						<a href="#/app/profile">
@@ -34,11 +34,11 @@
 					</h2>
 					<div class="row">
 						<div class="col">Nr Puncte</div>
-						<div class="col">xxx xxx</div>
+						<div class="col">{{ user.points }}</div>
 					</div>
 					<div class="row">
 						<div class="col">Nivel</div>
-						<div class="col">Incepator</div>
+						<div class="col">{{ user.level }}</div>
 					</div>
 				</div>
 			</div>

@@ -9,6 +9,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     public $timestamps = false;
+    protected $appends = ['level'];
     /**
      * The attributes that are mass assignable.
      *
@@ -30,5 +31,10 @@ class User extends Authenticatable
     public function books()
     {
        return $this->hasMany(Book::class);
+    }
+
+    public function getLevelAttribute()
+    {
+        return 'Incepator';
     }
 }

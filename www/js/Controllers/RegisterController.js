@@ -9,7 +9,7 @@ app.controller('RegisterController', function($scope, $state, $stateParams, toas
             $state.go('login');
         })
 
-    }
+    };
 
     if(Server.getUser())
         $state.go('app.home');

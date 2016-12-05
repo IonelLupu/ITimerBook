@@ -1,4 +1,4 @@
-app.service('Server', function ($http, toastr) {
+app.service('Server', function ($rootScope,$http, toastr) {
 	var Server = this;
 	
 	var serverURL = "http://localhost:8000/api/";
@@ -50,5 +50,13 @@ app.service('Server', function ($http, toastr) {
 		}
 		return null;
 	};
+	
+	this.updateUser = function(callback){
+		this.get('user').success(function(user){
+			$rootScope.$broadcast('updateUser', user);
+			if( callback && typeof callback == 'function')
+				callback(user);
+		})
+	}
 	
 });
