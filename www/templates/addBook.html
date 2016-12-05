@@ -26,32 +26,32 @@
 
         <p style="  margin-top: 70px;"> </p>
         <div>
-            <form>
+            <form ng-submit="addBook(book)">
 
                 <label for="title">Titlul</label>
                 <div class="text:align" >
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" ng-model="book.title">
                 </div>
 
                 <br>
 
                 <label for="nrPages">Numar paginii</label>
                 <div class="text:align" >
-                <input type="number" id="nrPages" name="nrPages">
+                <input type="number" id="nrPages" ng-model="book.pages">
                 </div>
 
                 <br>
 
                 <label for="author">Autor</label>
                 <div class="text:align" >
-                <input type="text" id="author" name="author">
+                <input type="text" id="author" ng-model="book.author">
                 </div>
 
                 <br>
 
                 <label for="description">Descriere</label>
                 <div class="text:align" >
-                <input type="text" id="description" name="description">
+                <input type="text" id="description" ng-model="book.description">
                 </div>
 
                 <p style="  margin-top: 20px;">

@@ -11,8 +11,11 @@ class UserController extends Controller
     {
         return \Auth::user();
     }
+
     public function getBooks()
     {
         return $this->response(Book::all());
     }
+
+
 }

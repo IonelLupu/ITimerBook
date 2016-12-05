@@ -44,7 +44,11 @@ app.service('Server', function ($http, toastr) {
 	};
 	
 	this.getUser = function () {
-		return JSON.parse(localStorage.getItem('_user'));
+		var user = localStorage.getItem('_user')
+		if( user != 'undefined' ){
+			return JSON.parse(user);
+		}
+		return null;
 	};
 	
 });
