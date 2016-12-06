@@ -1,4 +1,4 @@
-app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Server) {
+app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Server, toastr) {
 	
 	Server.updateUser();
 	
@@ -12,9 +12,9 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 	
 	
 	// Triggered on a button click, or some other target
-	$scope.showPopup = function () {
+	$scope.showPopup = function (id) {
 		$scope.data = {};
-		
+
 		// An elaborate, custom popup
 		var myPopup = $ionicPopup.show({
 			template: '<input type="number" ng-model="data.pages">',
@@ -26,7 +26,17 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 					text : '<b>Salveaza</b>',
 					type : 'button-positive',
 					onTap: function (e) {
-						console.log($scope.data.pages)
+						var data = {
+							pages: $scope.data.pages,
+							id:id
+						}
+						Server.post("updatePages",data).success(function(){
+
+							toastr.success("Felicitari! Numarul de pagini a fost actualizat cu success!")
+							$scope.$broadcast("$ionicView.enter")
+						})
+
+						//console.log($scope.data.pages)
 					}
 				}
 			]

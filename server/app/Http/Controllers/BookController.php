@@ -26,5 +26,23 @@ class BookController extends Controller
 //        $user = Auth::user();
 //        $book = new Book($request->all());
 //        $user->books()->save($book);
+
+    }
+
+    public function postUpdatePages(Request $request)
+    {
+        $this->validate($request, [
+
+            'pages'     => 'required|integer'
+
+            ]);
+
+        $book=Book::find($request->get("id"));
+        $book->update($request->all());
+
+
+             //return $request->get("pages") ;
+
     }
 }
+
