@@ -29,7 +29,9 @@
 						<b>{{ book.title }}&nbsp &nbsp &nbsp &nbsp</b> Numar puncte: xxx
 						<b>&nbsp &nbsp &nbsp &nbsp</b>
 						<span ng-click=" showPopup() " style="cursor:pointer">	{{book.pages}} pagini </span>
-						<button type="button" style="float:right; padding: 15px" onclick="finalizeaza()">Finalizeaza</button>
+						<!-- <button type="button" style="float:right; padding: 15px" onclick="finalizeaza()">Finalizeaza</button> -->
+
+					<input type="submit" style="float:right; padding:10px" value="Finalizare" ng-model="finish">
 					</p>
 					<p> Timp ramas:
 						<progress value="22" max="100"></progress>

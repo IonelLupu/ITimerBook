@@ -32,4 +32,12 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 			]
 		});
 	}
+
+    $scope.finish=function(finish){
+
+        Server.post("finish",finish).success(function(){
+            toastr.success("Felicitari! Ai castigat x puncte!")
+            $state.go("app.home");
+        });
+	}
 });
