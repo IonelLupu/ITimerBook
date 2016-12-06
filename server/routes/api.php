@@ -25,7 +25,7 @@ Route::group(['middleware' => ['cors']], function () {
         Route::get('user','UserController@getUser');
         Route::get('books','UserController@getBooks');
         Route::post('addBook','BookController@postBook');
-        Route::post('finish','BookController@postPoints');
+        Route::post('finish','BookController@postFinishBook');
     });
 
 });
