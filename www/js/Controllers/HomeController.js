@@ -43,11 +43,14 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 		});
 	}
 
-    $scope.finish=function(finish){
+    $scope.finish = function(bookId){
 
-        Server.post("finish",finish).success(function(){
+		var data = {
+			id : bookId
+		};
+        Server.post("finish",data).success(function(){
             toastr.success("Felicitari! Ai castigat x puncte!")
-            $state.go("app.home");
+            $scope.$broadcast("$ionicView.enter")
         });
 	}
 });

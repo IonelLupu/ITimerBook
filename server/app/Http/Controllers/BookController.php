@@ -48,10 +48,19 @@ class BookController extends Controller
 
     public function postFinishBook(Request $request)
     {
+        // update `finished` flag from database table
+        $id = $request->get('id');
 
-        $book=Book::find($request->get("id"));
-        $book->update($request->all());
+        $book=Book::find($id);
 
+        $book->finished = true;
+        $book->save();
+
+        // sterge carte din status
+
+        // update puncte
+        $this->user->points += 50;
+        $this->user->save();
     }
 }
 

@@ -33,8 +33,16 @@ class User extends Authenticatable
        return $this->hasMany(Book::class);
     }
 
+    public function notFinishedBooks()
+    {
+        return $this->books()->where('finished',0)->get();
+    }
+
     public function getLevelAttribute()
     {
-        return 'Incepator';
+        if($this->points < 50)
+            return 'Incepator';
+        else
+            return 'Mediu';
     }
 }
