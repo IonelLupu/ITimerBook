@@ -28,6 +28,7 @@ Route::group(['middleware' => ['cors']], function () {
         Route::post('addBook','BookController@postBook');
         Route::post('finish','BookController@postFinishBook');
         Route::post('updatePages','BookController@postUpdatePages');
+        Route::post('deleteBook','BookController@postDelete');
     });
 
 });

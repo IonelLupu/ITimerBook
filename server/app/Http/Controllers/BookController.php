@@ -67,5 +67,12 @@ class BookController extends Controller
         $this->user->points += 50;
         $this->user->save();
     }
+
+    public function postDelete(Request $request)
+    {
+        $book = Book::find($request->get('id'));
+        if($book)
+            $book->delete();
+    }
 }
 

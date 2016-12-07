@@ -13,6 +13,10 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 		});
 	});
 	
+	$scope.update = function(){
+		$scope.$broadcast('$ionicView.enter');
+	}
+	
 	
 	// Triggered on a button click, or some other target
 	$scope.showPopup = function (id) {
@@ -36,7 +40,7 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 						Server.post("updatePages",data).success(function(){
 
 							toastr.success("Felicitari! Numarul de pagini a fost actualizat cu success!")
-							$scope.$broadcast("$ionicView.enter")
+							$scope.update()
 						})
 
 						//console.log($scope.data.pages)
@@ -53,7 +57,14 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 		};
         Server.post("finish",data).success(function(){
             toastr.success("Felicitari! Ai castigat x puncte!")
-            $scope.$broadcast("$ionicView.enter")
+            $scope.update()
         });
+	}
+	
+	$scope.deleteBook = function(bookId){
+		Server.post('deleteBook',{id:bookId}).success(function(){
+            toastr.success("Cartea a fost stearsa cu succes!")
+			$scope.update()
+		})
 	}
 });
