@@ -65,10 +65,10 @@
 					<input type="password" id="repeat-password" ng-model="data.password_confirmation">
 				</div>
 
-				<label for="gender">Sex</label>
 				<div class="text:align">
-					Masculin <input type="radio" id="gender" name="gender" ng-model="data.gender" value="male"> <br>
-					Feminin <input type="radio" id="fgender" name="gender" ng-model="data.gender" value="female"> <br>
+					<label for="gender">Sex: </label>
+					<input type="radio" id="gender" name="gender" ng-model="data.gender" value="male">Masculin
+					<input type="radio" id="fgender" name="gender" ng-model="data.gender" value="female">Feminin
 				</div>
 				<br>
 
@@ -78,10 +78,10 @@
 				</div>
 				<br>
 
-				Categorii:
-				<br><br>
 
-				<div class="text-center">
+				<div class="text-center" ng-if="categories.length > 0">
+					Categorii:
+					<br><br>
 					<table class="text:align" style="display: inline-block;">
 						 
 						<tr ng-repeat="category in categories">

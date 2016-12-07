@@ -38,7 +38,7 @@ class BookController extends Controller
             ]);
 
         $book=Book::find($request->get("id"));
-        $book->bookmark = $request->get("book");
+        $book->bookmark = $request->get("bookmark");
 
         if ($book->bookmark >= $book->pages){
             $book->bookmark = $book->pages ;
