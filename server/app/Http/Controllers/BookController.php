@@ -44,5 +44,14 @@ class BookController extends Controller
              //return $request->get("pages") ;
 
     }
+
+
+    public function postFinishBook(Request $request)
+    {
+
+        $book=Book::find($request->get("id"));
+        $book->update($request->all());
+
+    }
 }
 
