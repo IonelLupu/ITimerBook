@@ -33,12 +33,17 @@ class BookController extends Controller
     {
         $this->validate($request, [
 
-            'pages'     => 'required|integer'
+            'bookmark'     => 'required|integer'
 
             ]);
 
         $book=Book::find($request->get("id"));
-        $book->update($request->all());
+        $book->bookmark = $request->get("book");
+
+        if ($book->bookmark >= $book->pages){
+            $book->bookmark = $book->pages ;
+        }
+        $book->save();
 
 
              //return $request->get("pages") ;

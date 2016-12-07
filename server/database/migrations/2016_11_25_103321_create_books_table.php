@@ -17,6 +17,7 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->integer('pages');
+            $table->integer('bookmark')->default(0);
             $table->string('author')->nullable();
             $table->text('description')->nullable();
             $table->boolean('finished')->default(0);

@@ -17,8 +17,8 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 
 		// An elaborate, custom popup
 		var myPopup = $ionicPopup.show({
-			template: '<input type="number" ng-model="data.pages">',
-			title   : 'Introduceti numar pagini',
+			template: '<input type="number" ng-model="data.bookmark">',
+			title   : 'Introduceti pagina actuala',
 			scope   : $scope,
 			buttons : [
 				{text: 'Renunta'},
@@ -27,7 +27,7 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 					type : 'button-positive',
 					onTap: function (e) {
 						var data = {
-							pages: $scope.data.pages,
+							bookmark: $scope.data.bookmark,
 							id:id
 						}
 						Server.post("updatePages",data).success(function(){
