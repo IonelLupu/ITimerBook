@@ -4,7 +4,7 @@
 
         <style>
 
-            input[type=text],input[type=number], select {
+            input[type=text],input[type=number],input[type=textarea],input[type=password],select {
                 width: 40%;
                 padding: 12px 20px;
                 margin: 8px 0;
@@ -55,14 +55,14 @@
 
                 <label for="password">Parola</label>
                 <div class="text:align" >
-                    <input type="text" id="password" name="password" ng-model="data.password ">
+                    <input type="password" id="password" ng-model="data.password">
                 </div>
 
                 <br>
 
                 <label for="repeat-password">Repeta parola</label>
                 <div class="text:align" >
-                    <input type="text" id="repeat-password" name="repeat-password" ng-model="data.password_confirmation">
+                    <input type="password" id="repeat-password" ng-model="data.password_confirmation">
                 </div>
 
                 <label for="gender">Sex</label>
@@ -72,33 +72,52 @@
                 </div>
                 <br>
 
-      <!--          Categorii: <br>
+                <label for="address">Adresa</label>
                 <div class="text:align" >
-                <input type="checkbox" value="category1" ng-model="data.categories.category1"> Categorie 1<br>
-                <input type="checkbox" value="category2" ng-model="data.categories.category2"> Categorie 2<br>
-                <input type="checkbox" value="category3" ng-model="data.categories.category3"> Categorie 3<br>
-                <input type="checkbox" value="category4" ng-model="data.categories.category4"> Categorie 4<br>
-                <input type="checkbox" value="category5" ng-model="data.categories.category5"> Categorie 5<br>
-                <input type="checkbox" value="category6" ng-model="data.categories.category6"> Categorie 6<br>
-                <input type="checkbox" value="category7" ng-model="data.categories.category7"> Categorie 7<br>
-                <input type="checkbox" value="category8" ng-model="data.categories.category8"> Categorie 8<br>
-                <input type="checkbox" value="category9" ng-model="data.categories.category9"> Categorie 9<br>
-                <input type="checkbox" value="category10" ng-model="data.categories.category10">Categorie 10<br>
+                    <input type="textarea" style="height: 90px" id="address" name="address" ng-model="data.address">
                 </div>
-                <br><br>-->
+                <br>
 
-<!--                <table style="width:85%">
+                Categorii: <br>
+               <!-- <div class="text:align" >
+                    < ng-repeat="category in categories">
+                <input type="checkbox" value="category1" ng-model="data.categories.category1"> {{categories.name}}<br>
+                <input type="checkbox" value="category2" ng-model="data.categories.category2"> {{categories.name}}<br>
+                <input type="checkbox" value="category3" ng-model="data.categories.category3"> {{categories.name}}<br>
+                <input type="checkbox" value="category4" ng-model="data.categories.category4"> {{categories.name}}<br>
+                <input type="checkbox" value="category5" ng-model="data.categories.category5">{{categories.name}}<br>
+                <input type="checkbox" value="category6" ng-model="data.categories.category6">{{categories.name}}<br>
+                <input type="checkbox" value="category7" ng-model="data.categories.category7"> {{categories.name}}<br>
+                <input type="checkbox" value="category8" ng-model="data.categories.category8">{{categories.name}}<br>
+                <input type="checkbox" value="category9" ng-model="data.categories.category9"> {{categories.name}}<br>
+                <input type="checkbox" value="category10" ng-model="data.categories.category10">{{categories.name}}<br>
+                </div>-->
+
+
+                <br><br>
+                <table style="width:85%" class="text:align">
                      
                     <tr ng-repeat="category in categories">
                         <td>
                             <p>
-                                <b>{{ category.name }}&nbsp &nbsp &nbsp &nbsp</b>
-                                <b>&nbsp &nbsp &nbsp &nbsp</b>
+
+                                <input type="checkbox" value="category1" ng-model="data.categories.category1">{{categories.name}}<br>
+                                <input type="checkbox" value="category2" ng-model="data.categories.category2">{{categories.name}}<br>
+                                <input type="checkbox" value="category3" ng-model="data.categories.category3">{{categories.name}}<br>
+                                <input type="checkbox" value="category4" ng-model="data.categories.category4">{{categories.name}}<br>
+                                <input type="checkbox" value="category5" ng-model="data.categories.category5">{{categories.name}}<br>
+                                <input type="checkbox" value="category6" ng-model="data.categories.category6">{{categories.name}}<br>
+                                <input type="checkbox" value="category7" ng-model="data.categories.category7">{{categories.name}}<br>
+                                <input type="checkbox" value="category8" ng-model="data.categories.category8">{{categories.name}}<br>
+                                <input type="checkbox" value="category9" ng-model="data.categories.category9">{{categories.name}}<br>
+                                <input type="checkbox" value="category10" ng-model="data.categories.category10">{{categories.name}}<br>
                             </p>
 
-                    </tr>-->
+                        </td>
+                    </tr>
 
                 </table>
+
 
                 <p style="  margin-top: 20px;">
                     <input type="submit" value="Inregistrare">
