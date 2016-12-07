@@ -18,6 +18,7 @@ Route::group(['middleware' => ['cors']], function () {
     // public routes
     Route::post('register','Auth\AuthController@register');
     Route::post('auth','Auth\AuthController@authenticate');
+    Route::get('categories','Controller@getCategories');
 
 
     // private routes

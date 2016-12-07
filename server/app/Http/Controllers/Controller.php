@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -33,6 +34,11 @@ class Controller extends BaseController
         return response()->json([
             "server" => [$data]
         ], 500);
+    }
+
+    public function getCategories()
+    {
+        return Category::all();
     }
 
 }

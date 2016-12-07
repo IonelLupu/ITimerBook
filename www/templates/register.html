@@ -1,129 +1,104 @@
 <ion-view view-title="Inregistrare">
-    <ion-content>
+	<ion-content>
 
+		<style>
 
-        <style>
+			input[type=text], input[type=number], input[type=textarea], input[type=password], select {
+				width: 40%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 3px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
 
-            input[type=text],input[type=number],input[type=textarea],input[type=password],select {
-                width: 40%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 3px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
+			}
 
-            }
-            body{
-                text-align: center;
-            }
-            input[type=submit]{
-                padding: 10px;
-                width: 30%;
-            }
+			body {
+				text-align: center;
+			}
 
-        </style>
+			input[type=submit] {
+				padding: 10px;
+				width: 30%;
+			}
 
-        <p style="  margin-top: 80px;"></p>
-        <h1 style=" text-align: center">ITimerBook</h1>
+		</style>
 
+		<p style="  margin-top: 80px;"></p>
+		<h1 style=" text-align: center">ITimerBook</h1>
 
-        <p style="  margin-top: 70px;"> </p>
-        <div>
-            <form ng-submit="registerUser(data)">
+		<p style="  margin-top: 70px;"></p>
+		<div>
+			<form ng-submit="registerUser(data)">
 
-                <label for="lastname">Nume</label>
-                <div class="text:align" >
-                    <input type="text" id="lastname" name="lastname" ng-model="data.lastName">
-                </div>
+				<label for="lastname">Nume</label>
+				<div class="text:align">
+					<input type="text" id="lastname" name="lastname" ng-model="data.lastName">
+				</div>
 
-                <br>
+				<br>
 
-                <label for="firstname">Prenume</label>
-                <div class="text:align" >
-                    <input type="text" id="firstname" name="firstname" ng-model="data.firstName">
-                </div>
+				<label for="firstname">Prenume</label>
+				<div class="text:align">
+					<input type="text" id="firstname" name="firstname" ng-model="data.firstName">
+				</div>
 
-                <br>
+				<br>
 
-                <label for="email">E-mail</label>
-                <div class="text:align" >
-                    <input type="text" id="email" name="email" ng-model="data.email">
-                </div>
+				<label for="email">E-mail</label>
+				<div class="text:align">
+					<input type="text" id="email" name="email" ng-model="data.email">
+				</div>
 
-                <br>
+				<br>
 
-                <label for="password">Parola</label>
-                <div class="text:align" >
-                    <input type="password" id="password" ng-model="data.password">
-                </div>
+				<label for="password">Parola</label>
+				<div class="text:align">
+					<input type="password" id="password" ng-model="data.password">
+				</div>
 
-                <br>
+				<br>
 
-                <label for="repeat-password">Repeta parola</label>
-                <div class="text:align" >
-                    <input type="password" id="repeat-password" ng-model="data.password_confirmation">
-                </div>
+				<label for="repeat-password">Repeta parola</label>
+				<div class="text:align">
+					<input type="password" id="repeat-password" ng-model="data.password_confirmation">
+				</div>
 
-                <label for="gender">Sex</label>
-                <div class="text:align" >
-                    Masculin <input type="radio" id="gender" name="gender" ng-model="data.gender" value="male"> <br>
-                   Feminin <input type="radio" id="fgender" name="gender" ng-model="data.gender" value="female"> <br>
-                </div>
-                <br>
+				<label for="gender">Sex</label>
+				<div class="text:align">
+					Masculin <input type="radio" id="gender" name="gender" ng-model="data.gender" value="male"> <br>
+					Feminin <input type="radio" id="fgender" name="gender" ng-model="data.gender" value="female"> <br>
+				</div>
+				<br>
 
-                <label for="address">Adresa</label>
-                <div class="text:align" >
-                    <input type="textarea" style="height: 90px" id="address" name="address" ng-model="data.address">
-                </div>
-                <br>
+				<label for="address">Adresa</label>
+				<div class="text:align">
+					<input type="textarea" style="height: 90px" id="address" name="address" ng-model="data.address">
+				</div>
+				<br>
 
-                Categorii: <br>
-               <!-- <div class="text:align" >
-                    < ng-repeat="category in categories">
-                <input type="checkbox" value="category1" ng-model="data.categories.category1"> {{categories.name}}<br>
-                <input type="checkbox" value="category2" ng-model="data.categories.category2"> {{categories.name}}<br>
-                <input type="checkbox" value="category3" ng-model="data.categories.category3"> {{categories.name}}<br>
-                <input type="checkbox" value="category4" ng-model="data.categories.category4"> {{categories.name}}<br>
-                <input type="checkbox" value="category5" ng-model="data.categories.category5">{{categories.name}}<br>
-                <input type="checkbox" value="category6" ng-model="data.categories.category6">{{categories.name}}<br>
-                <input type="checkbox" value="category7" ng-model="data.categories.category7"> {{categories.name}}<br>
-                <input type="checkbox" value="category8" ng-model="data.categories.category8">{{categories.name}}<br>
-                <input type="checkbox" value="category9" ng-model="data.categories.category9"> {{categories.name}}<br>
-                <input type="checkbox" value="category10" ng-model="data.categories.category10">{{categories.name}}<br>
-                </div>-->
+				Categorii:
+				<br><br>
 
+				<div class="text-center">
+					<table class="text:align" style="display: inline-block;">
+						 
+						<tr ng-repeat="category in categories">
+							<td>
+								<input type="checkbox" name="categories" ng-model="data.categories[category.id]">
+							</td>
+							<td class="text-left">{{category.name}}</td>
+						</tr>
 
-                <br><br>
-                <table style="width:85%" class="text:align">
-                     
-                    <tr ng-repeat="category in categories">
-                        <td>
-                            <p>
+					</table>
+				</div>
 
-                                <input type="checkbox" value="category1" ng-model="data.categories.category1">{{categories.name}}<br>
-                                <input type="checkbox" value="category2" ng-model="data.categories.category2">{{categories.name}}<br>
-                                <input type="checkbox" value="category3" ng-model="data.categories.category3">{{categories.name}}<br>
-                                <input type="checkbox" value="category4" ng-model="data.categories.category4">{{categories.name}}<br>
-                                <input type="checkbox" value="category5" ng-model="data.categories.category5">{{categories.name}}<br>
-                                <input type="checkbox" value="category6" ng-model="data.categories.category6">{{categories.name}}<br>
-                                <input type="checkbox" value="category7" ng-model="data.categories.category7">{{categories.name}}<br>
-                                <input type="checkbox" value="category8" ng-model="data.categories.category8">{{categories.name}}<br>
-                                <input type="checkbox" value="category9" ng-model="data.categories.category9">{{categories.name}}<br>
-                                <input type="checkbox" value="category10" ng-model="data.categories.category10">{{categories.name}}<br>
-                            </p>
+				<p style="  margin-top: 20px;">
+					<input type="submit" value="Inregistrare">
 
-                        </td>
-                    </tr>
+			</form>
+		</div>
 
-                </table>
-
-
-                <p style="  margin-top: 20px;">
-                    <input type="submit" value="Inregistrare">
-
-            </form>
-        </div>
-
-    </ion-content>
+	</ion-content>
 </ion-view>

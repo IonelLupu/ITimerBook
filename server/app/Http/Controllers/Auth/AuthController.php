@@ -53,9 +53,11 @@ class AuthController extends Controller
         ]);
 
         $user = new User($request->all());
-
         $user->password = Hash::make($user->password);
         $user->save();
+
+        $categories = array_keys($request->get('categories'));
+        $user->categories()->attach($categories);
 
         return $this->response($user);
     }

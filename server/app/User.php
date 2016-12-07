@@ -8,15 +8,20 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+
     public $timestamps = false;
+
     protected $appends = ['level'];
+
+    protected $with = ['categories'];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'firstName','lastName', 'email','password','gender',
+        'firstName', 'lastName', 'email', 'password', 'gender',
     ];
 
     /**
@@ -28,21 +33,27 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'users_categories');
+    }
+
     public function books()
     {
-       return $this->hasMany(Book::class);
+        return $this->hasMany(Book::class);
     }
 
     public function notFinishedBooks()
     {
-        return $this->books()->where('finished',0)->get();
+        return $this->books()->where('finished', 0)->get();
     }
 
     public function getLevelAttribute()
     {
-        if($this->points < 50)
+        if ($this->points < 50)
             return 'Incepator';
         else
             return 'Mediu';
     }
+
 }
