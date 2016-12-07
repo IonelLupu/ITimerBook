@@ -2,11 +2,14 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 	
 	Server.updateUser();
 	
+	$scope.contentLoaded = false;
+	
 	$scope.books = [];
 	$scope.$on('$ionicView.enter', function (e) {
 		Server.updateUser();
 		Server.get('books').then(function (resp) {
 			$scope.books = resp.data;
+			$scope.contentLoaded = true;
 		});
 	});
 	
