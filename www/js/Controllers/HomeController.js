@@ -39,7 +39,7 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 						}
 						Server.post("updatePages",data).success(function(){
 
-							toastr.success("Felicitari! Numarul de pagini a fost actualizat cu success!")
+							toastr.success("Numarul de pagini a fost actualizat cu success!")
 							$scope.update()
 						})
 
