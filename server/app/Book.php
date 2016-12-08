@@ -31,7 +31,8 @@ class Book extends Model
 	{
 		$daysToFinish = $this->time;
 
-		$currentFinishDate = (Carbon::now())->diffInDays($this->added_at);
+        $currentTime = Carbon::now();
+        $currentFinishDate = $currentTime->diffInDays($this->added_at);
 
 		$nrPages = $this->pages;
 		$points  = $nrPages;
