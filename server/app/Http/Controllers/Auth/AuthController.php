@@ -52,7 +52,11 @@ class AuthController extends Controller
             'password'  => 'required|min:6|confirmed',
         ]);
 
-        $user = new User($request->all());
+        $data = $request->all();
+
+        $data['minutesForReading'] = $data['hours']*60 + $data['minutes'];
+
+        $user = new User($data);
         $user->password = Hash::make($user->password);
         $user->save();
 

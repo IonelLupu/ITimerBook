@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstName', 'lastName', 'email', 'password', 'gender',
+        'firstName', 'lastName', 'email', 'password', 'gender','address','minutesForReading',
     ];
 
     /**
@@ -50,10 +50,17 @@ class User extends Authenticatable
 
     public function getLevelAttribute()
     {
-        if ($this->points < 50)
+        if ($this->points <= 2500)
             return 'Incepator';
-        else
+
+        if ($this->points > 2500 && $this->points <= 6000)
             return 'Mediu';
+
+        if ($this->points > 6000 && $this->points <= 10000)
+            return 'Avansat';
+
+        if ($this->points > 10000)
+            return 'Expert';
     }
 
 }

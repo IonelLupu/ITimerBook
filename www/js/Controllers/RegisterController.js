@@ -7,7 +7,9 @@ app.controller('RegisterController', function ($scope, $state, $stateParams, toa
 	});
 	
 	$scope.data = {
-		categories : {}
+		categories : {},
+		hours : 0,
+		minutes : 0,
 	};
 	
 	$scope.registerUser = function (data) {
