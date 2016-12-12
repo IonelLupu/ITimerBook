@@ -8,6 +8,8 @@ app.controller('CompetitionController', function($scope, $stateParams, Server) {
             title : "Carte 1",
             author: "Ionel Florescu",
         },
+        book_to_read:"Maytreyi",
+        author_to_read:"Mircea Eliade"
 
     },
     {
@@ -15,8 +17,8 @@ app.controller('CompetitionController', function($scope, $stateParams, Server) {
         ends_at :"1.1.16",
         points : "400",
         prize : {
-            title : "Carte 1",
-            author: "Ionel Florescu",
+            title : "Carte 2",
+            author: "Ion Creanga",
         },
 
     }
