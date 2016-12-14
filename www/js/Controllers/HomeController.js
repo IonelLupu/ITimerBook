@@ -24,7 +24,7 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 
 		// An elaborate, custom popup
 		var myPopup = $ionicPopup.show({
-			template: '<input type="number" ng-model="data.bookmark">',
+			template: '<input type="number" min="0" ng-model="data.bookmark">',
 			title   : 'Introduceti pagina actuala',
 			scope   : $scope,
 			buttons : [

@@ -6,6 +6,7 @@
 				margin-left: 100px;
 			}
 
+
 			img {
 				display: block;
 				margin: auto;
@@ -63,7 +64,7 @@
 				<tr ng-repeat="book in books">
 					<td>
 						<div class="dropdown">
-							<b>{{ book.title }}&nbsp &nbsp &nbsp &nbsp</b> Numar puncte: xxx
+							<b style="font-size: 120%">{{ book.title }}&nbsp &nbsp &nbsp &nbsp</b> Numar puncte: xxx
 							<b>&nbsp &nbsp &nbsp </b>
 							<span ng-click=" showPopup(book.id) " style="cursor:pointer"> {{book.bookmark}}	/ {{book.pages}} pagini </span>
 							<!-- <button type="button" style="float:right; padding: 15px" onclick="finalizeaza()">Finalizeaza</button> -->
@@ -79,9 +80,9 @@
 						</p>
 
 						<div class="dropdown-content">
-							<h4>{{ book.title }}</h4>
-							<h6>{{ book.author }}</h6>
-							<p> Descriere: {{ book.description }} </p>
+							<h4 style="font-size: 170%"> &nbsp {{ book.title }}</h4>
+							<h6 style="font-size: 100%"> &nbsp  &nbsp de {{ book.author }} </h6>
+							<p>  &nbsp Descriere: {{ book.description }} </p>
 						</div>
 						</div>
 					</td>

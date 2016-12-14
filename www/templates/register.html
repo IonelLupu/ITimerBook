@@ -79,8 +79,8 @@
 				<div class="text:align">
 					<label for="gender">Timp alocat cititului pe zi: </label>
 					<br>
-					Ore: <input type="number" class="small-input" ng-model="data.hours">
-					Minute: <input type="number" class="small-input" ng-model="data.minutes">
+					Ore: <input type="number" min="0" class="small-input" ng-model="data.hours">
+					Minute: <input type="number" min="0" class="small-input" ng-model="data.minutes">
 				</div>
 				<br>
 
@@ -109,6 +109,8 @@
 
 				<p style="  margin-top: 20px;">
 					<input type="submit" value="Inregistrare">
+				<p>
+					<a href="#/login">Inapoi la autentificare</a>
 
 			</form>
 		</div>
