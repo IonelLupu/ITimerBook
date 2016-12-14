@@ -58,7 +58,7 @@ class BookController extends Controller
 		$book->finished = true;
 		$book->save();
 
-		// sterge carte din status
+		// delete book from status (done by the client)
 
 		// update puncte
 		$this->user->points += $book->getPoints()['points'] + $book->getPoints()['bonus'];
@@ -73,6 +73,11 @@ class BookController extends Controller
 		$book = Book::find($request->get('id'));
 		if ($book)
 			$book->delete();
+	}
+
+	public function getHistory()
+	{
+		return $this->user->books()->finishedBooks()->orderBy('added_at','DESC')->get();
 	}
 }
 

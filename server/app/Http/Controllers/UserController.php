@@ -17,5 +17,10 @@ class UserController extends Controller
         return $this->user->notFinishedBooks();
     }
 
+	public function getRankings()
+	{
+		return $this->user->orderBy('points','DESC')->get();
+    }
+
 
 }

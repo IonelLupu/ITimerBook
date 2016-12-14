@@ -48,6 +48,7 @@ class User extends Authenticatable
         return $this->books()->where('finished', 0)->get();
     }
 
+
     public function getLevelAttribute()
     {
         if ($this->points <= 2500)
