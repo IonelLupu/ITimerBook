@@ -3,7 +3,7 @@
 
 		<style>
 			h3 {
-				margin-left: 40px;
+				margin-left: 100px;
 			}
 
 			img {
@@ -17,7 +17,39 @@
 				text-align: left;
 				padding: 15px;
 			}
+
+			h2 {
+				text-align: center;
+			}
+
+
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: white;
+				border-color: gray;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			}
+
+
+			.dropdown:hover .dropdown-content {
+				position: absolute;
+				display: block;
+
+			}
+
 		</style>
+
+		 <h2> Nume: {{ user.firstName }} {{ user.lastName }} &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp
+			 &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+
+			 Puncte:
+			 {{ user.points }} &nbsp &nbsp
+			 Nivel:
+			 {{ user.level }}</h2> </br>
+
 
 		<div class="loader" ng-if="!contentLoaded"></div>
 
@@ -30,7 +62,7 @@
 				 
 				<tr ng-repeat="book in books">
 					<td>
-						<p>
+						<div class="dropdown">
 							<b>{{ book.title }}&nbsp &nbsp &nbsp &nbsp</b> Numar puncte: xxx
 							<b>&nbsp &nbsp &nbsp </b>
 							<span ng-click=" showPopup(book.id) " style="cursor:pointer"> {{book.bookmark}}	/ {{book.pages}} pagini </span>
@@ -38,19 +70,26 @@
 
 							<button style="float:right; padding:10px" class="button finish-book"
 							       ng-click="finish(book.id)">Finalizare</button>
-						</p>
+
 						<p> Timp ramas:
 							<progress value="22" max="100"></progress>
 							5 zile si 6 ore
 							<button style="float:right; padding:10px" class="button delete-book"
 							        ng-click="deleteBook(book.id)">Sterge</button>
 						</p>
+
+						<div class="dropdown-content">
+							<h4>{{ book.title }}</h4>
+							<h6>{{ book.author }}</h6>
+							<p> Descriere: {{ book.description }} </p>
+						</div>
+						</div>
 					</td>
 				</tr>
 
 			</table>
 
-			<br>
+			<br> <br> <br> <br>
 			<div class="text-center">
 				<a type="button" class="button" style="width: 50%;" href="#/app/addBook">
 					Adauga carte
