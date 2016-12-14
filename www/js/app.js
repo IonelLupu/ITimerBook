@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('starter', ['ionic', 'starter.controllers','toastr'])
+var app = angular.module('starter', ['ionic', 'starter.controllers', 'toastr'])
 	
 	.run(function ($ionicPlatform) {
 		$ionicPlatform.ready(function () {
@@ -60,7 +60,7 @@ var app = angular.module('starter', ['ionic', 'starter.controllers','toastr'])
 			})
 			
 			.state('register', {
-				url  : '/register',
+				url        : '/register',
 				templateUrl: 'templates/register.html',
 				controller : 'RegisterController'
 			})
@@ -83,7 +83,7 @@ var app = angular.module('starter', ['ionic', 'starter.controllers','toastr'])
 						controller : 'CompetitionPresentationController'
 					}
 				}
-
+				
 			})
 			.state('app.competition', {
 				url  : '/competition',
@@ -93,9 +93,9 @@ var app = angular.module('starter', ['ionic', 'starter.controllers','toastr'])
 						controller : 'CompetitionController'
 					}
 				}
-
+				
 			});
-
+		
 		// if none of the above states are matched, use this as the fallback
 		$urlRouterProvider.otherwise('/login');
 	});
@@ -108,3 +108,11 @@ app.config(['$httpProvider', function ($httpProvider) {
 	$httpProvider.defaults.useXDomain     = true;
 	delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
+
+app.config(function (toastrConfig) {
+	angular.extend(toastrConfig, {
+		allowHtml  : true,
+		progressBar: true,
+		timeOut    : 10000,
+	});
+});

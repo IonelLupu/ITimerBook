@@ -31,8 +31,8 @@ class Book extends Model
 	{
 		$daysToFinish = $this->time;
 
-        $currentTime = Carbon::now();
-        $currentFinishDate = $currentTime->diffInDays($this->added_at);
+		$currentTime       = Carbon::now();
+		$currentFinishDate = $currentTime->diffInDays($this->added_at);
 
 		$nrPages = $this->pages;
 		$points  = $nrPages;
@@ -49,4 +49,10 @@ class Book extends Model
 	{
 		return $this->getPoints()['points'];
 	}
+
+	public function scopeFinishedBooks()
+	{
+		return $this->where('finished', 1);
+	}
+
 }
