@@ -94,6 +94,17 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'toastr'])
 					}
 				}
 				
+			})
+
+			.state('app.history', {
+				url  : '/history',
+				views: {
+					'menuContent': {
+						templateUrl: 'templates/history.html',
+						controller : 'HistoryController'
+					}
+				}
+
 			});
 		
 		// if none of the above states are matched, use this as the fallback

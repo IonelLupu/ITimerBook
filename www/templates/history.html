@@ -1,0 +1,38 @@
+<ion-view view-title="Istoric">
+    <ion-content>
+
+        <style>
+
+            /*input[type=text],input[type=number], input[type=textarea], select {
+                width: 40%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 3px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+
+            }*/
+          /*  body{
+                text-align: center;
+            }*/
+
+
+        </style>
+
+        <div class="list" ng-repeat="book in books">
+
+            <a class="item item-avatar" href="#">
+                <!--<img src="venkman.jpg">-->
+                <h2>{{book.title}}</h2>
+                <p>{{book.author}}</p>
+                <p>{{book.points}}</p>
+                <p>{{book.pages}}</p>
+
+            </a>
+
+
+        </div>
+
+    </ion-content>
+</ion-view>
