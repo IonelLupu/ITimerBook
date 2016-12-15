@@ -42,12 +42,6 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        /******* How to return errors
-//        return $this->error([
-//            "hours" => ["completeaza campul ore"]
-//        ]);
-         * /
-
         /***********************************************
          ************ Validation
          **********************************************/
