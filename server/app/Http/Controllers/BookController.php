@@ -23,6 +23,14 @@ class BookController extends Controller
 //		$book->user_id = $user->id;
 //		$book->save();
 
+        $data = $request->all();
+
+        if ($data['pages']<0 || $data['pages']==0) {
+            return $this->error([
+                "pages" => ["Campul Numar pagini trebuie sa fie valid ."] ,
+            ]);
+        }
+
 		$book           = new Book($request->all());
 		$book->added_at = Carbon::now();
 		$this->user->books()->save($book);

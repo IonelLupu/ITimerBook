@@ -33,7 +33,7 @@
 
 		<p style="  margin-top: 70px;"></p>
 		<div>
-			<form ng-submit="registerUser(data)">
+			<form ng-submit="registerUser(data)" novalidate>
 
 				<label for="lastname">Nume</label>
 				<div class="text:align">
@@ -79,8 +79,8 @@
 				<div class="text:align">
 					<label for="gender">Timp alocat cititului pe zi: </label>
 					<br>
-					Ore: <input type="number" min="0" class="small-input" ng-model="data.hours">
-					Minute: <input type="number" min="0" class="small-input" ng-model="data.minutes">
+					Ore: <input type="number"  class="small-input" ng-model="data.hours">
+					Minute: <input type="number"  class="small-input" ng-model="data.minutes">
 				</div>
 				<br>
 

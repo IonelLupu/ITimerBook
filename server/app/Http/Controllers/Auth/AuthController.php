@@ -25,7 +25,7 @@ class AuthController extends Controller
             // verify the credentials and create a token for the user
             if (!$token = JWTAuth::attempt($credentials)) {
                 return $this->error([
-                    'login' => ['Credentiale invalide']
+                    'login' => ['Email sau Parola gresite .']
                 ]);
             }
 
@@ -42,17 +42,43 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+        /******* How to return errors
+//        return $this->error([
+//            "hours" => ["completeaza campul ore"]
+//        ]);
+         * /
+
         /***********************************************
          ************ Validation
          **********************************************/
         $this->validate($request, [
-            'firstName' => 'required|max:255',
             'lastName'  => 'required|max:255',
+            'firstName' => 'required|max:255',
             'email'     => 'required|email|max:255|unique:users',
             'password'  => 'required|min:6|confirmed',
         ]);
 
+
         $data = $request->all();
+
+        if ($data['hours']==0 && $data['minutes']==0) {
+            return $this->error([
+                "hours" => ["Campul pentru timpul alocat cititului pe zi este obligatoriu ."] ,
+                "minutes" => ["Campul pentru timpul alocat cititului pe zi este obligatoriu ."]
+          ]);
+        }
+
+        if ($data['minutes']>59 || $data['minutes']<0) {
+            return $this->error([
+                "minutes" => ["Campul pentru minute trebuie sa fie valid ."] ,
+                ]);
+        }
+
+        if ($data['hours']<0) {
+            return $this->error([
+                "hours" => ["Campul pentru ore trebuie sa fie valid ."] ,
+            ]);
+        }
 
         $data['minutesForReading'] = $data['hours']*60 + $data['minutes'];
 

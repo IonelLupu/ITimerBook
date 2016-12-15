@@ -5,6 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class Book extends Model
 {
@@ -22,7 +23,7 @@ class Book extends Model
 		$nrPages           = $this->pages;
 		$minutesForReading = $user->minutesForReading;
 
-		$daysToRead = round(($nrPages / 0.5) / $minutesForReading);
+		$daysToRead = ceil(($nrPages / 0.5) / $minutesForReading);
 
 		return $daysToRead;
 	}

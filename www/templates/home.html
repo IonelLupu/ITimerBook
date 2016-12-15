@@ -31,7 +31,7 @@
 				background-color: white;
 				border-color: gray;
 				min-width: 160px;
-				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.2);
 			}
 
 
@@ -64,7 +64,7 @@
 				<tr ng-repeat="book in books">
 					<td>
 						<div class="dropdown">
-							<b style="font-size: 120%">{{ book.title }}&nbsp &nbsp &nbsp &nbsp</b> Numar puncte: xxx
+							<b style="font-size: 120%">{{ book.title }}</b> Numar puncte: xxx
 							<b>&nbsp &nbsp &nbsp </b>
 							<span ng-click=" showPopup(book.id) " style="cursor:pointer"> {{book.bookmark}}	/ {{book.pages}} pagini </span>
 							<!-- <button type="button" style="float:right; padding: 15px" onclick="finalizeaza()">Finalizeaza</button> -->
@@ -79,7 +79,7 @@
 							        ng-click="deleteBook(book.id)">Sterge</button>
 						</p>
 
-						<div class="dropdown-content">
+						<div class="dropdown-content" style="padding: 10px;">
 							<h4 style="font-size: 170%"> &nbsp {{ book.title }}</h4>
 							<h6 style="font-size: 100%"> &nbsp  &nbsp de {{ book.author }} </h6>
 							<p>  &nbsp Descriere: {{ book.description }} </p>

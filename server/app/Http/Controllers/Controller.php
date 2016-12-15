@@ -26,7 +26,7 @@ class Controller extends BaseController
 
     public function error($data)
     {
-        return response()->json($data, 401);
+        return response()->json($data, 422);
     }
 
     public function internalError($data)
