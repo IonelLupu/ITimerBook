@@ -30,6 +30,7 @@ Route::group(['middleware' => ['cors']], function () {
         Route::post('updatePages','BookController@postUpdatePages');
         Route::post('deleteBook','BookController@postDelete');
 
+        //Route::get('profile','UserController@postUpdateProfile');
         Route::get('history','BookController@getHistory');
         Route::get('rankings','UserController@getRankings');
 

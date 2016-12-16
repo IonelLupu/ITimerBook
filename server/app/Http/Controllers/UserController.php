@@ -22,5 +22,8 @@ class UserController extends Controller
 		return $this->user->orderBy('points','DESC')->get();
     }
 
+  //  public function postUpdateProfile(Request $request)
+
+
 
 }
