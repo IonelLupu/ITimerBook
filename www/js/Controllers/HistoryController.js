@@ -6,6 +6,7 @@ app.controller('HistoryController', function($scope, $state, $stateParams, toast
     $scope.books = [
 
         {
+            id:"1",
             title : "Ana are mere",
             author: "Gigi",
             points: 200,
@@ -13,6 +14,7 @@ app.controller('HistoryController', function($scope, $state, $stateParams, toast
         },
 
         {
+            id:"2",
             title : "Lupu lpacalit de vulpe",
             author: "Digi",
             points: 400,
@@ -20,6 +22,7 @@ app.controller('HistoryController', function($scope, $state, $stateParams, toast
         },
 
         {
+            id:"3",
             title : "Lili si papucii",
             author: "Vigi",
             points: 50,
