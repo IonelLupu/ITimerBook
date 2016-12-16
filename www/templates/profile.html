@@ -1,0 +1,108 @@
+<ion-view view-title="Profil">
+    <ion-content>
+
+        <style>
+
+            .container {
+                max-width: 550px;
+                margin: 0 auto;
+                margin-top: 50px;
+            }
+
+            input[type=text] {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                display: inline-block;
+                border: none;
+                border-radius: 0;
+            }
+            .item-floating-label .input-label.has-input{
+                color: #989898;
+            }
+            .item-checkbox{
+                padding-left: 80px;
+            }
+            .item-checkbox .checkbox{
+                left: 40px;
+            }
+
+            .box-shadow {
+                box-shadow: 1px 0px 20px 6px rgba(0, 0, 0, 0.14);
+            }
+
+
+        </style>
+        <div class="container">
+
+            
+            <form ng-submit="registerUser(data)" novalidate>
+
+                <div class="list box-shadow">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Prenume</span>
+                        <input type="text" placeholder="Prenume" ng-model="user.firstName">
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Nume</span>
+                        <input type="text" placeholder="Nume" ng-model="user.lastName">
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Email</span>
+                        <input type="text" placeholder="Email" ng-model="user.email">
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Parola</span>
+                        <input type="password" placeholder="Parola" ng-model="user.password">
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Repeta parola</span>
+                        <input type="password" placeholder="Repeta parola" ng-model="data.password_confirmation">
+                    </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Adresa</span>
+                        <input type="text" placeholder="Adresa" ng-model="user.address">
+                    </label>
+                </div>
+                <div class="list box-shadow">
+                    <label class="item item-input item-floating-label">
+                        Sex
+                    </label>
+                    <ion-list>
+                        <ion-radio ng-model="choice" ng-value="'A'">Masculin</ion-radio>
+                        <ion-radio ng-model="choice" ng-value="'B'">Feminin</ion-radio>
+                    </ion-list>
+                </div>
+                <div class="list box-shadow">
+                    <label class="item item-input item-floating-label">
+                                Timp alocat cititului pe zi
+                    </label>
+                    <label class="item item-input item-floating-label">
+                                Ore: <input type="number"  class="small-input" ng-model="data.hours">
+                                Minute: <input type="number"  class="small-input" ng-model="data.minutes">
+                    </label>
+                </div>
+
+                    <!--Checklist categorii -->
+
+                    <!--<label class="item item-input item-floating-label">-->
+                        <!--Categorii de carti-->
+                    <!--</label>-->
+                    <!--<ion-list>-->
+
+                        <!--<ion-checkbox ng-model="filter.red">Comedie</ion-checkbox>-->
+                        <!--<ion-checkbox ng-model="filter.yellow">Dragoste</ion-checkbox>-->
+                        <!--<ion-checkbox ng-model="filter.pink">Fictiune</ion-checkbox>-->
+
+                    <!--</ion-list>-->
+
+
+                <button class="button button-block button-outline button-balanced">
+                    Salveaza
+                </button>
+            </form>
+
+
+        </div>
+    </ion-content>
+</ion-view>
