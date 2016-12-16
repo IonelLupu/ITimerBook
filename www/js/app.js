@@ -116,6 +116,16 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'toastr'])
                     }
                 }
 
+                    .state('app.ranking', {
+                        url  : '/ranking',
+                        views: {
+                            'menuContent': {
+                                templateUrl: 'templates/ranking.html',
+                                controller : 'RankingController'
+                            }
+                        }
+
+                    })
             });
 		
 		// if none of the above states are matched, use this as the fallback
