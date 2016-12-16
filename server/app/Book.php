@@ -15,7 +15,7 @@ class Book extends Model
 
 	protected $dates = ['added_at'];
 
-	protected $appends = ['time', 'points'];
+	protected $appends = ['time', 'points', 'supposedProgressPercent', 'supposedProgressPages','remainingDays'];
 
 	public function getTimeAttribute()
 	{
@@ -56,4 +56,25 @@ class Book extends Model
 		return $this->where('finished', 1);
 	}
 
+	public function getSupposedProgressPercentAttribute()
+	{
+		$currentTime = Carbon::now();
+		$added_at    = $this->added_at;
+
+		return ($currentTime->diffInDays($added_at)) / $this->time * 100;
+	}
+
+	public function getSupposedProgressPagesAttribute()
+	{
+		return intval($this->supposedProgressPercent / 100 * $this->pages);
+	}
+
+	public function getRemainingDaysAttribute()
+	{
+		$currentTime = Carbon::now();
+
+		$finishDate = $this->added_at->addDays($this->time);
+
+		return $finishDate->diffInDays($currentTime);
+	}
 }

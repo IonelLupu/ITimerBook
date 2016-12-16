@@ -6,7 +6,6 @@
 				margin-left: 100px;
 			}
 
-
 			img {
 				display: block;
 				margin: auto;
@@ -17,13 +16,12 @@
 				border: 3px solid #eee;
 				text-align: left;
 				padding: 15px;
+				width: 100%;
 			}
 
 			h2 {
 				text-align: center;
 			}
-
-
 
 			.dropdown-content {
 				display: none;
@@ -31,59 +29,127 @@
 				background-color: white;
 				border-color: gray;
 				min-width: 160px;
-				box-shadow: 0 0 10px 3px rgba(0,0,0,0.2);
+				box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+				top: 120%;
+				z-index: 999;
 			}
-
 
 			.dropdown:hover .dropdown-content {
 				position: absolute;
 				display: block;
+			}
 
+			.dropdown {
+				position: relative;
+				display: flex;
+			}
+
+			.book-content {
+				flex: 1;
+			}
+
+			.book-title{
+				font-size: 20px;
+				font-weight: bolder;
+			}
+			.book-options {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				padding-left: 10px;
+			}
+
+			progress{
+				margin: 5px auto;
+			}
+
+			.bookmark{
+				font-weight: bolder;
+				font-size: 15px;
+			}
+			.info-table{
+				width: 100%;
+				font-size: 30px;
+			}
+
+			.info-table tr td{
+				width: 50%;
+				border: none;
 			}
 
 		</style>
-
-		 <h2> Nume: {{ user.firstName }} {{ user.lastName }} &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp
-			 &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-
-			 Puncte:
-			 {{ user.points }} &nbsp &nbsp
-			 Nivel:
-			 {{ user.level }}</h2> </br>
-
 
 		<div class="loader" ng-if="!contentLoaded"></div>
 
 		<div class="container" ng-if="contentLoaded">
 
-			<h3 ng-if="books.length == 0" class="text-center">Nu ai nici o carte.</h3>
-			<h3 ng-if="books.length > 0">Status:</h3>
+			<table class="info-table">
+				<tr>
+					<td class="text-center">
+						<h2>Nr Puncte</h2>
+						{{ user.points | number:0 }}
+					</td>
+					<td class="text-center">
+						<h2>Nivel</h2>
+						{{ user.level }}
+					</td>
+				</tr>
+			</table>
 
-			<table style="width:85%" ng-if="books.length > 0" class="home-table">
+
+			<h3 ng-if="books.length == 0" class="text-center">Nu ai nici o carte.</h3>
+			<!--<h3 ng-if="books.length > 0">Status:</h3>-->
+
+			<table ng-if="books.length > 0" class="home-table">
 				 
 				<tr ng-repeat="book in books">
 					<td>
 						<div class="dropdown">
-							<b style="font-size: 120%">{{ book.title }}</b> Numar puncte: xxx
-							<b>&nbsp &nbsp &nbsp </b>
-							<span ng-click=" showPopup(book.id) " style="cursor:pointer"> {{book.bookmark}}	/ {{book.pages}} pagini </span>
-							<!-- <button type="button" style="float:right; padding: 15px" onclick="finalizeaza()">Finalizeaza</button> -->
 
-							<button style="float:right; padding:10px" class="button finish-book"
-							       ng-click="finish(book.id)">Finalizare</button>
+							<div class="book-content">
+								<div class="book-header">
+									<span class="book-title">{{ book.title }}</span>
+								</div>
+								<div class="book-info">
 
-						<p> Timp ramas:
-							<progress value="22" max="100"></progress>
-							5 zile si 6 ore
-							<button style="float:right; padding:10px" class="button delete-book"
-							        ng-click="deleteBook(book.id)">Sterge</button>
-						</p>
+									<span class="book-progress  text-center">
+										Ar fi trebuit sa fiu pagina: {{book.supposedProgressPages}} din {{book.pages}}
+										<span style="float: right;">Mai ai {{ book.remainingDays }} zile ramase</span>
+										<div class="progress">
+											<div class="progress-bar" ng-style="{'backgroundColor' : getProgressColor( book.supposedProgressPages / book.pages   ) , 'width' : getProgressWidth(book.supposedProgressPages,book.pages) }"></div>
+										</div>
+									</span>
 
-						<div class="dropdown-content" style="padding: 10px;">
-							<h4 style="font-size: 170%"> &nbsp {{ book.title }}</h4>
-							<h6 style="font-size: 100%"> &nbsp  &nbsp de {{ book.author }} </h6>
-							<p>  &nbsp Descriere: {{ book.description }} </p>
-						</div>
+									<span class="book-progress text-center" ng-click="showPopup(book.id)" style="cursor:pointer">
+										<span> Am ajuns la pagina: <span class="bookmark">{{book.bookmark}}</span> din {{book.pages}}</span>
+										<div class="progress">
+											<div class="progress-bar"
+											     ng-style="{'backgroundColor' : getProgressColor( book.bookmark / book.pages   ) , 'width' : getProgressWidth(book.bookmark,book.pages) }"
+											></div>
+										</div>
+									</span>
+
+									<!--<p> Timp ramas:-->
+										<!--5 zile si 6 ore-->
+									<!--</p>-->
+								</div>
+							</div>
+							<div class="book-options">
+
+								<button class="button finish-book"
+								        ng-click="finish(book.id)">Finalizare
+								</button>
+
+								<button class="button delete-book"
+								        ng-click="deleteBook(book.id)">Sterge
+								</button>
+							</div>
+
+							<div class="dropdown-content" style="padding: 10px;">
+								<h4 style="font-size: 170%"> &nbsp {{ book.title }}</h4>
+								<h6 style="font-size: 100%"> &nbsp &nbsp de {{ book.author }} </h6>
+								<p> &nbsp Descriere: {{ book.description }} </p>
+							</div>
 						</div>
 					</td>
 				</tr>

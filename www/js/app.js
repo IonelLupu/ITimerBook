@@ -95,7 +95,7 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'toastr'])
 				}
 				
 			})
-
+			
 			.state('app.history', {
 				url  : '/history',
 				views: {
@@ -104,29 +104,29 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'toastr'])
 						controller : 'HistoryController'
 					}
 				}
-
+				
 			})
-
-            .state('app.profile', {
-                url  : '/profile',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/profile.html',
-                        controller : 'ProfileController'
-                    }
-                }
-
-                    .state('app.ranking', {
-                        url  : '/ranking',
-                        views: {
-                            'menuContent': {
-                                templateUrl: 'templates/ranking.html',
-                                controller : 'RankingController'
-                            }
-                        }
-
-                    })
-            });
+			
+			.state('app.profile', {
+				url  : '/profile',
+				views: {
+					'menuContent': {
+						templateUrl: 'templates/profile.html',
+						controller : 'ProfileController'
+					}
+				}
+				
+			})
+			.state('app.ranking', {
+				url  : '/ranking',
+				views: {
+					'menuContent': {
+						templateUrl: 'templates/ranking.html',
+						controller : 'RankingController'
+					}
+				}
+				
+			})
 		
 		// if none of the above states are matched, use this as the fallback
 		$urlRouterProvider.otherwise('/login');

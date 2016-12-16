@@ -41,7 +41,7 @@ class BookController extends Controller
 	{
 		$this->validate($request, [
 
-			'bookmark' => 'required|integer'
+			'bookmark' => 'required|integer|min:0'
 
 		]);
 
@@ -52,7 +52,7 @@ class BookController extends Controller
 			$book->bookmark = $book->pages;
 		}
 		$book->save();
-		//return $request->get("pages") ;
+		return $book->bookmark;
 	}
 
 
