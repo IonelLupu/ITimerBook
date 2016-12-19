@@ -3,16 +3,20 @@
 
         <style>
 
-
+			.ranking-number{
+                text-align: left;
+            }
+			.ranking-name, .ranking-points{
+                text-align: center;
+            }
         </style>
 
         <div class="list" ng-repeat="user in users">
 
             <a class="item item-avatar" href="#">
-                <!--<img src="venkman.jpg">-->
-                <h2>{{user.firstName}}</h2>
-                <h2>{{user.lastName}}</h2>
-                <h2>{{user.points}}</h2>
+				<h1 class="ranking-number">{{$index+1}}</h1>	
+                <h3 class="ranking-name">Nume utilizator: {{user.firstName}} {{user.lastName}}</h3>
+                 <p class="ranking-points">Puncte: {{user.points}}</p>
 
 
             </a>

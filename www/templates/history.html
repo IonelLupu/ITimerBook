@@ -3,35 +3,26 @@
 
         <style>
 
-            /*input[type=text],input[type=number], input[type=textarea], select {
-                width: 40%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 3px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-
-            }*/
-          /*  body{
-                text-align: center;
-            }*/
-
-            h1{
+            .history-number{
                 text-align: left;
             }
+			 .history-title, .history-points{
+                text-align: center;
+            }
+			
+			.history-ends_at{
+			text-align: right;
+			}
 
         </style>
 
         <div class="list" ng-repeat="book in books">
 
             <a class="item item-avatar" href="#">
-                <!--<img src="venkman.jpg">-->
-                <h1>{{book.id}}</h1>
-                <h3>{{book.title}}</h3>
-                <p>{{book.author}}</p>
-                <p>{{book.points}}</p>
-                <p>{{book.pages}}</p>
+                <h1 class="history-number">{{$index+1}}</h1>	
+                <h3 class="history-title">{{book.title}}, {{book.author}}.</h3>
+                <p class="history-points">Puncte primite: {{book.points}}</p>
+                <p class="history-ends_at">Finalizata la data de: {{book.ends_at}}</p>
 
             </a>
 
