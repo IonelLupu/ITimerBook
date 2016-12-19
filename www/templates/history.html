@@ -17,7 +17,7 @@
                 text-align: center;
             }*/
 
-            h1{
+            .history-number{
                 text-align: left;
             }
 
@@ -28,6 +28,7 @@
             <a class="item item-avatar" href="#">
                 <!--<img src="venkman.jpg">-->
                 <h1>{{$index+1}}</h1>
+                <h1 class="history-number">{{book.id}}</h1>
                 <h3>{{book.title}}</h3>
                 <p>{{book.author}}</p>
                 <p>{{book.points}}</p>
