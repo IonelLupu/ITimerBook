@@ -99,6 +99,7 @@ input[type=submit] {
 
 .finish-book {
     line-height: inherit;
+    margin-bottom: 12px;
 }
 
 .delete-book {

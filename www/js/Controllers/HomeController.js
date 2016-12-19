@@ -58,8 +58,8 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 		var data = {
 			id: bookId
 		};
-		Server.post("finish", data).success(function () {
-			toastr.success("Felicitari! Ai castigat x puncte!")
+		Server.post("finish", data).success(function (points) {
+			toastr.success("Felicitari! Ai castigat " + points + " puncte!")
 			$scope.update()
 		});
 	};

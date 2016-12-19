@@ -39,13 +39,14 @@ class BookController extends Controller
 
 	public function postUpdatePages(Request $request)
 	{
-		$this->validate($request, [
+        $book = Book::find($request->get("id"));
+
+        $this->validate($request, [
 
 			'bookmark' => 'required|integer|min:0'
 
 		]);
 
-		$book           = Book::find($request->get("id"));
 		$book->bookmark = $request->get("bookmark");
 
 		if ($book->bookmark >= $book->pages) {
@@ -69,11 +70,13 @@ class BookController extends Controller
 		// delete book from status (done by the client)
 
 		// update puncte
-		$this->user->points += $book->getPoints()['points'] + $book->getPoints()['bonus'];
+        $totalPoints = $book->getPoints()['points'] + $book->getPoints()['bonus'];
+
+        $this->user->points += $totalPoints;
 
 		$this->user->save();
 
-		return $this->response($book->getPoints());
+		return $this->response($totalPoints);
 	}
 
 	public function postDelete(Request $request)
