@@ -3,22 +3,11 @@
 
         <style>
 
-            /*input[type=text],input[type=number], input[type=textarea], select {
-                width: 40%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 3px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-
-            }*/
-          /*  body{
-                text-align: center;
-            }*/
-
             .history-number{
                 text-align: left;
+            }
+			 .history-title, .history-author, .history-points, .history-pages{
+                text-align: center;
             }
 
         </style>
@@ -27,13 +16,11 @@
 
             <a class="item item-avatar" href="#">
                 <!--<img src="venkman.jpg">-->
-                <h1>{{$index+1}}</h1>
-                <h1 class="history-number">{{book.id}}</h1>
-				
-                <h3>{{book.title}}</h3>
-                <p>{{book.author}}</p>
-                <p>{{book.points}}</p>
-                <p>{{book.pages}}</p>
+                <h1 class="history-number">{{$index+1}}</h1>	
+                <h3 class="history-title">{{book.title}}</h3>
+                <p class="history-author">{{book.author}}</p>
+                <p class="history-points">{{book.points}}</p>
+                <p class="history-pages">{{book.pages}}</p>
 
             </a>
 
