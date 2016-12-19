@@ -6,21 +6,23 @@
             .history-number{
                 text-align: left;
             }
-			 .history-title, .history-author, .history-points, .history-pages{
+			 .history-title, .history-points{
                 text-align: center;
             }
+			
+			.history-ends_at{
+			text-align: right;
+			}
 
         </style>
 
         <div class="list" ng-repeat="book in books">
 
             <a class="item item-avatar" href="#">
-                <!--<img src="venkman.jpg">-->
                 <h1 class="history-number">{{$index+1}}</h1>	
-                <h3 class="history-title">{{book.title}}</h3>
-                <p class="history-author">{{book.author}}</p>
-                <p class="history-points">{{book.points}}</p>
-                <p class="history-pages">{{book.pages}}</p>
+                <h3 class="history-title">{{book.title}}, {{book.author}}.</h3>
+                <p class="history-points">Puncte primite: {{book.points}}</p>
+                <p class="history-ends_at">Finalizata la data de: {{book.ends_at}}</p>
 
             </a>
 

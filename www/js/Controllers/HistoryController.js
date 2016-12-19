@@ -10,7 +10,7 @@ app.controller('HistoryController', function($scope, $state, $stateParams, toast
             title : "Ana are mere",
             author: "Gigi",
             points: 200,
-            pages: 200
+            ends_at:"15.12.2016"
         },
 
         {
@@ -18,7 +18,7 @@ app.controller('HistoryController', function($scope, $state, $stateParams, toast
             title : "Lupu lpacalit de vulpe",
             author: "Digi",
             points: 400,
-            pages: 400
+            ends_at:"12.12.2016"
         },
 
         {
@@ -26,7 +26,7 @@ app.controller('HistoryController', function($scope, $state, $stateParams, toast
             title : "Lili si papucii",
             author: "Vigi",
             points: 50,
-            pages: 50
+           ends_at:"18.12.2016"
         },
     ]
 });
