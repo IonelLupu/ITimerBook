@@ -1,13 +1,15 @@
 app.controller('CompetitionPresentationController', function($scope, $stateParams, Server) {
 
     $scope.competition = {
-        book : {
-            title : "Carte 1",
-            author: "Ionel Florescu",
+        starts_at :"19.12.2016",
+        ends_at :"25.12.2016",
+        points : "300",
+        prize : {
+            title : "De la idee la bani",
+            author: "Napoleon Hill",
         },
-        ends_at : "24.5.16",
-        title: "carte premiu",
-        author: "zarzare"
+        book:"Maytreyi",
+        author:"Mircea Eliade"
 
     }
 });

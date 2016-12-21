@@ -87,4 +87,16 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 			value = 0;
 		return value + '%';
 	}
+    $scope.competition = {
+        starts_at :"19.12.16",
+        ends_at :"25.12.16",
+        points : "300",
+        prize : {
+            title : "De la idee la bani",
+            author: "Napoleon Hill",
+        },
+        book:"Maytreyi",
+        author:"Mircea Eliade"
+
+    }
 });
