@@ -1,4 +1,4 @@
-app.service('Server', function ($rootScope,$http, toastr) {
+app.service('Server', function ($rootScope, $http, toastr) {
 	var Server = this;
 	
 	var serverURL = "http://localhost:8000/api/";
@@ -9,15 +9,18 @@ app.service('Server', function ($rootScope,$http, toastr) {
 			method : method,
 			url    : serverURL + route,
 			headers: {
-				'Content-Type' : 'application/json',
-				'Accept'       : 'application/json',
-				'Authorization': 'Bearer ' + loginToken
+				'Content-Type'               : 'application/json',
+				'Accept'                     : 'application/json',
+				'Authorization'              : 'Bearer ' + loginToken,
+				'Access-Control-Allow-Origin': 'http://localhost:8000'
 			},
 			data   : data
 		}).error(function (resp) {
-			console.error("server error ->",resp);
+			console.error("server error ->", resp);
+			if( !resp )
+				return console.error("Fatal Server error");
 			var firstError = resp[Object.keys(resp)[0]];
-			if( firstError.constructor == Array ){
+			if (firstError.constructor == Array) {
 				toastr.error(firstError[0]);
 			}
 		});
@@ -40,21 +43,21 @@ app.service('Server', function ($rootScope,$http, toastr) {
 	};
 	
 	this.setUser = function (user) {
-		localStorage.setItem('_user',JSON.stringify(user));
+		localStorage.setItem('_user', JSON.stringify(user));
 	};
 	
 	this.getUser = function () {
 		var user = localStorage.getItem('_user')
-		if( user && user != 'undefined' ){
+		if (user && user != 'undefined') {
 			return JSON.parse(user);
 		}
 		return null;
 	};
 	
-	this.updateUser = function(callback){
-		this.get('user').success(function(user){
+	this.updateUser = function (callback) {
+		this.get('user').success(function (user) {
 			$rootScope.$broadcast('updateUser', user);
-			if( callback && typeof callback == 'function')
+			if (callback && typeof callback == 'function')
 				callback(user);
 		})
 	}
