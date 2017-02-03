@@ -37,7 +37,7 @@
 		</style>
 		<div class="container" style="padding-top: 50px;">
 
-			<form ng-submit="updateUser(user)" novalidate>
+			<form ng-submit="updateProfile(user)" novalidate>
 
 				<div class="list box-shadow">
 					<label class="item item-input item-floating-label">
@@ -52,23 +52,23 @@
 						<span class="input-label">Email</span>
 						<input type="text" placeholder="Email" ng-model="user.email">
 					</label>
-					<label class="item item-input item-floating-label">
-						<span class="input-label">Parola</span>
-						<input type="password" placeholder="Parola" ng-model="user.password">
-					</label>
-					<label class="item item-input item-floating-label">
-						<span class="input-label">Repeta parola</span>
-						<input type="password" placeholder="Repeta parola" ng-model="user.password_confirmation">
-					</label>
+					<!--<label class="item item-input item-floating-label">-->
+						<!--<span class="input-label">Parola</span>-->
+						<!--<input type="password" placeholder="Parola" ng-model="user.password">-->
+					<!--</label>-->
+					<!--<label class="item item-input item-floating-label">-->
+						<!--<span class="input-label">Repeta parola</span>-->
+						<!--<input type="password" placeholder="Repeta parola" ng-model="user.password_confirmation">-->
+					<!--</label>-->
 					<label class="item item-input item-floating-label">
 						<span class="input-label">Adresa</span>
 						<input type="text" placeholder="Adresa" ng-model="user.address">
 					</label>
 				</div>
-				<div class="list box-shadow">
-					<label class="item item-input item-floating-label">
-						Sex
-					</label>
+				<div>
+					<!--<label class="item item-input item-floating-label">-->
+						<!--Sex-->
+					<!--</label>-->
 					<!--<ion-list>-->
 					<!--<ion-radio ng-model="choice" ng-value="'A'">Masculin</ion-radio>-->
 					<!--<ion-radio ng-model="choice" ng-value="'B'">Feminin</ion-radio>-->
@@ -76,24 +76,24 @@
 
 					<ion-list class="disable-user-behavior">
 						<div class="list">
-							<label class="item item-radio fluid-label" ng-value="'male'" value="male">
-								<input type="radio" name="radio-group" ng-value="'male'" ng-model="user.gender" value="A">
-								<div class="radio-content">
-									<div class="item-content disable-pointer-events">
-										<span>Masculin</span>
-									</div>
-									<i class="radio-icon disable-pointer-events icon ion-checkmark"></i>
-								</div>
-							</label>
-							<label class="item item-radio fluid-label" ng-value="'female'" value="female">
-								<input type="radio" name="radio-group" ng-value="'female'" ng-model="user.gender" value="B">
-								<div class="radio-content">
-									<div class="item-content disable-pointer-events">
-										<span>Feminin</span>
-									</div>
-									<i class="radio-icon disable-pointer-events icon ion-checkmark"></i>
-								</div>
-							</label>
+							<!--<label class="item item-radio fluid-label" ng-value="'male'" value="male">-->
+								<!--<input type="radio" name="radio-group" ng-value="'male'" ng-model="user.gender" value="A">-->
+								<!--<div class="radio-content">-->
+									<!--<div class="item-content disable-pointer-events">-->
+										<!--<span>Masculin</span>-->
+									<!--</div>-->
+									<!--<i class="radio-icon disable-pointer-events icon ion-checkmark"></i>-->
+								<!--</div>-->
+							<!--</label>-->
+							<!--<label class="item item-radio fluid-label" ng-value="'female'" value="female">-->
+								<!--<input type="radio" name="radio-group" ng-value="'female'" ng-model="user.gender" value="B">-->
+								<!--<div class="radio-content">-->
+									<!--<div class="item-content disable-pointer-events">-->
+										<!--<span>Feminin</span>-->
+									<!--</div>-->
+									<!--<i class="radio-icon disable-pointer-events icon ion-checkmark"></i>-->
+								<!--</div>-->
+							<!--</label>-->
 						</div>
 					</ion-list>
 				</div>
@@ -124,7 +124,7 @@
 
 				<!--</ion-list>-->
 
-				<button class="button button-block button-outline button-balanced">
+				<button type="submit"  class="button button-block button-outline button-balanced">
 					Salveaza
 				</button>
 			</form>
