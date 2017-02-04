@@ -126,6 +126,15 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'toastr'])
 					}
 				}
 				
+			}).state('app.quiz', {
+				url  : '/quiz',
+				views: {
+					'menuContent': {
+						templateUrl: 'templates/quiz.html',
+						controller : 'QuizController'
+					}
+				}
+
 			})
 		
 		// if none of the above states are matched, use this as the fallback
