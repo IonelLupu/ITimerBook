@@ -1,137 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<ion-view view-title="QUIZ">
+    <ion-content>
+    <style>
+        .answers {
+            list-style: upper-alpha;
+            text-align: center;
+            font-family: mv boli;
+            font-size: 130%;
+
+        }
+
+        label {
+            cursor: pointer;
+        }
+        .question {
+            text-align: center;
+            font-family: cursive;
+            font-size: 200%;
+        }
+        </style>
 </head>
 <body>
-<form action="quiz_result.php" method="post" id="quiz">
 
-    <li>
+<p class="question">1. What is the answer to this question?</p>
 
+<ul class="answers">
+    <input type="radio" name="q1" value="a" id="q1a"><label class="answers" for="q1a">Answer 1</label><br/>
+    <input type="radio" name="q1" value="b" id="q1b"><label class="answers" for="q1b">Answer 2</label><br/>
+    <input type="radio" name="q1" value="c" id="q1c"><label class="answers" for="q1c">Answer 3</label><br/>
+    <input type="radio" name="q1" value="d" id="q1d"><label class="answers" for="q1d">Answer 4</label><br/>
+</ul>
 
 
-        <h3>HTML Stands for...</h3>
+<p class="question">2. What is the answer to this question?</p>
 
-        <div>
+<ul class="answers">
+    <input type="radio" name="q2" value="a" id="q2a"><label class="answers" for="q2a">Answer 1</label><br/>
+    <input type="radio" name="q2" value="b" id="q2b"><label class="answers" for="q2b">Answer 2</label><br/>
+    <input type="radio" name="q2" value="c" id="q2c"><label class="answers" for="q2c">Answer 3</label><br/>
+    <input type="radio" name="q2" value="d" id="q2d"><label class="answers" for="q2d">Answer 4</label><br/>
+</ul>
 
-            <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
+<p class="question">3. What is the answer to this question?</p>
 
-            <label for="question-1-answers-A">A) Hypertext Markup Language </label>
+<ul class="answers">
+    <input type="radio" name="q3" value="a" id="q3a"><label class="answers" for="q3a">Answer 1</label><br/>
+    <input type="radio" name="q3" value="b" id="q3b"><label class="answers" for="q3b">Answer 2</label><br/>
+    <input type="radio" name="q3" value="c" id="q3c"><label class="answers" for="q3c">Answer 3</label><br/>
+    <input type="radio" name="q3" value="d" id="q3d"><label class="answers" for="q3d">Answer 4</label><br/>
+</ul>
 
-        </div>
+<p class="question">4. What is the answer to this question?</p>
 
-        <div>
+<ul class="answers">
+    <input type="radio" name="q4" value="a" id="q4a"><label class="answers" for="q4a">Answer 1</label><br/>
+    <input type="radio" name="q4" value="b" id="q4b"><label class="answers" for="q4b">Answer 2</label><br/>
+    <input type="radio" name="q4" value="c" id="q4c"><label class="answers" for="q4c">Answer 3</label><br/>
+    <input type="radio" name="q4" value="d" id="q4d"><label class="answers" for="q4d">Answer 4</label><br/>
+</ul>
 
-            <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
+<p class="question">5. What is the answer to this question?</p>
 
-            <label for="question-1-answers-B">B) Hypertext Markup</label>
+<ul class="answers">
+    <input type="radio" name="q5" value="a" id="q5a"><label class="answers" for="q5a">Answer 1</label><br/>
+    <input type="radio" name="q5" value="b" id="q5b"><label class="answers" for="q5b">Answer 2</label><br/>
+    <input type="radio" name="q5" value="c" id="q5c"><label class="answers" for="q5c">Answer 3</label><br/>
+    <input type="radio" name="q5" value="d" id="q5d"><label class="answers" for="q5d">Answer 4</label><br/>
+</ul>
 
-        </div>
+<br>
 
-        <div>
+<div class="text-center">
+    <a type="button" class="button" style="width: 50%;" href="#/app/competition">
+        Submit
+    </a>
+</div>
 
-            <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
-
-            <label for="question-1-answers-C">C) Hypertext Programming</label>
-
-        </div>
-
-        <div>
-
-            <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />
-
-            <label for="question-1-answers-D">D) None of the above</label>
-
-        </div>
-
-
-
-    </li>
-<li>
-
-
-
-        <h3>HTML Stands for...</h3>
-
-        <div>
-
-            <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
-
-            <label for="question-1-answers-A">A) Hypertext Markup Language </label>
-
-        </div>
-
-        <div>
-
-            <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
-
-            <label for="question-1-answers-B">B) Hypertext Markup</label>
-
-        </div>
-
-        <div>
-
-            <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
-
-            <label for="question-1-answers-C">C) Hypertext Programming</label>
-
-        </div>
-
-        <div>
-
-            <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />
-
-            <label for="question-1-answers-D">D) None of the above</label>
-
-        </div>
-
-
-
-    </li>
-<li>
-
-
-
-        <h3>HTML Stands for...</h3>
-
-        <div>
-
-            <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
-
-            <label for="question-1-answers-A">A) Hypertext Markup Language </label>
-
-        </div>
-
-        <div>
-
-            <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
-
-            <label for="question-1-answers-B">B) Hypertext Markup</label>
-
-        </div>
-
-        <div>
-
-            <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
-
-            <label for="question-1-answers-C">C) Hypertext Programming</label>
-
-        </div>
-
-        <div>
-
-            <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />
-
-            <label for="question-1-answers-D">D) None of the above</label>
-
-        </div>
-
-
-
-    </li>
-
-
-</form>
 </body>
-</html>
+    </ion-content>
+</ion-view>
