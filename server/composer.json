@@ -28,9 +28,9 @@
             "database"
         ],
         "psr-4": {
-            "JCWolf\\Dashboard\\": "packages/packages/JCWolf/Dashboard/src",
-            "JCWolf\\Autoform\\": "packages/packages/JCWolf/Autoform/src",
-            "JCWolf\\DataModeler\\": "packages/packages/JCWolf/DataModeler/src",
+            "JCWolf\\Dashboard\\": "packages/JCWolf/Dashboard/src",
+            "JCWolf\\Autoform\\": "packages/JCWolf/Autoform/src",
+            "JCWolf\\DataModeler\\": "packages/JCWolf/DataModeler/src",
             "App\\": "app/"
         }
     },
