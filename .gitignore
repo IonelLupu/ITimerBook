@@ -7,5 +7,4 @@ plugins/
 .idea/
 resources/
 !server/resources/
-
 server/database/database.sqlite
