@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Participant;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class CompetitionController extends Controller
@@ -15,7 +17,8 @@ class CompetitionController extends Controller
                 'answer1' => 'Nice' ,
                 'answer2' => 'Lyon' ,
                 'answer3' => 'Paris' ,
-                'answer4' => 'Marseille'
+                'answer4' => 'Marseille',
+                'correct_answer' => 3
             ] ,
 
             [
@@ -23,7 +26,8 @@ class CompetitionController extends Controller
                 'answer1' => 'Manchester' ,
                 'answer2' => 'Londra' ,
                 'answer3' => 'Liverpool' ,
-                'answer4' => 'Bolton'
+                'answer4' => 'Bolton',
+                'correct_answer' => 2
             ] ,
 
             [
@@ -31,7 +35,26 @@ class CompetitionController extends Controller
                 'answer1' => 'Madrid' ,
                 'answer2' => 'Barcelona' ,
                 'answer3' => 'Sevilla' ,
-                'answer4' => 'Marbella'
+                'answer4' => 'Marbella',
+                'correct_answer' => 1
+            ] ,
+
+            [
+                'body' => 'Care este capitala Germaniei ?' ,
+                'answer1' => 'Koln' ,
+                'answer2' => 'Munchen' ,
+                'answer3' => 'Dortmund' ,
+                'answer4' => 'Berlin',
+                'correct_answer' => 4
+            ] ,
+
+            [
+                'body' => 'Care este capitala Italiei ?' ,
+                'answer1' => 'Florence' ,
+                'answer2' => 'Milan' ,
+                'answer3' => 'Bologna' ,
+                'answer4' => 'Roma',
+                'correct_answer' => 4
             ]
 
       ] ;
@@ -39,34 +62,24 @@ class CompetitionController extends Controller
         return $questions;
     }
 
-    public function getCorrectAnswer(Request $request){
+    public function postAnswers(Request $request){
 
-        $correctAnswer = $request->get("correct_answer") ;
+        $answers = $request->get("answers") ;
 
-        return $correctAnswer;
-    }
 
-    public function postAnswers(){
+        $collectCorrectAnswers = 0 ;
 
-//        $answer = $request->get("answers") ;
-//
-//
-//        $this->validate($request, [
-//
-//
-//        ]);
-//
-//        var collectCorrectAnswers ;
-//
-//        for (var i = 1; i <= 4; i++){
-//
-//            if($answer[i]==$correctAnswer) {
-//
-//                collectCorrectAnswers == collectCorrectAnswers + 1;
-//            }
-//        }
-//
-//        return collectCorrectAnswers ;
+        $questions = $this->getQuestions();
+
+        foreach ($questions  as $index => $question){
+            if( $answers[$index] == $question['correct_answer'] )
+                $collectCorrectAnswers++;
+        }
+
+
+        return $collectCorrectAnswers ;
 
     }
+
 }
+

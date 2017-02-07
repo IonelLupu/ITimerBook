@@ -22,7 +22,7 @@
 
         <pre ng-bind="selection.ids | json"></pre>
         <div ng-repeat="(index, question) in questions">
-            <p class="question">Intrebarea {{index + 1}} : {{question.body}} </p>
+            <p class="question">{{index + 1}} . {{question.body}} </p>
 
             <ul class="answers">
                 <li ng-repeat="(aindex,answer) in question.answers">

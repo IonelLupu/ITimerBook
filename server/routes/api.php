@@ -32,7 +32,7 @@ Route::group(['middleware' => ['cors']], function () {
         Route::post('updateProfile','UserController@postUpdateProfile');
 
         Route::get('questions','CompetitionController@getQuestions');
-        Route::post('answers','CompetitionController@getQuestions');
+        Route::post('answers','CompetitionController@postAnswers');
 
         Route::get('profile','UserController@postUpdateProfile');
         Route::get('history','BookController@getHistory');
