@@ -16,7 +16,6 @@ app.service('Server', function ($rootScope, $http, toastr) {
 			},
 			data   : data
 		}).error(function (resp) {
-			console.error("server error ->", resp);
 			if( !resp )
 				return console.error("Fatal Server error");
 			var firstError = resp[Object.keys(resp)[0]];

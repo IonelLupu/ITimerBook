@@ -28,5 +28,7 @@ app.controller('ProfileController', function ($scope, $stateParams, $ionicPopup,
             });
 
 	}
-	// Server.updateUser();
+
+
+    // Server.updateUser();
 });

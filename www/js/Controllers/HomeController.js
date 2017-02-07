@@ -7,8 +7,8 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 	$scope.books = [];
 	$scope.$on('$ionicView.enter', function () {
 		Server.updateUser();
-		Server.get('books').then(function (resp) {
-			$scope.books         = resp.data;
+		Server.get('books').success(function (books) {
+			$scope.books         = books;
 			$scope.contentLoaded = true;
 		});
 	});
