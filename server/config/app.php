@@ -178,7 +178,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+
+
+	    JCWolf\DataModeler\DataModelerServiceProvider::class,
+	    JCWolf\Autoform\AutoformServiceProvider::class,
+	    JCWolf\Dashboard\DashboardServiceProvider::class,
     ],
 
     /*

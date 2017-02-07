@@ -1,14 +1,20 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
         "barryvdh/laravel-cors": "^0.8.2",
-        "tymon/jwt-auth": "^0.5.9"
+        "tymon/jwt-auth": "^0.5.9",
+        "doctrine/dbal": "^2.5",
+        "zizaco/entrust": "dev-laravel-5",
+        "laravelcollective/html": "^5.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -22,6 +28,9 @@
             "database"
         ],
         "psr-4": {
+            "JCWolf\\Dashboard\\": "packages/packages/JCWolf/Dashboard/src",
+            "JCWolf\\Autoform\\": "packages/packages/JCWolf/Autoform/src",
+            "JCWolf\\DataModeler\\": "packages/packages/JCWolf/DataModeler/src",
             "App\\": "app/"
         }
     },
