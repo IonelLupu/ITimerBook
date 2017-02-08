@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Book;
+use App\Models\Book;
 use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
