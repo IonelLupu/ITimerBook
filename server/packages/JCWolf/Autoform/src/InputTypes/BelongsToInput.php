@@ -23,9 +23,13 @@ class BelongsToInput extends SelectInput implements RelationshipsContract
     }
 
     public function view(  ) {
+        if(isset($this->value[$this->properties['label']]))
+            return $this->value[$this->properties['label']];
+
         if( isset($this->value['name']) )
             return $this->value->name;
-        return '';
+
+        return 'no_label_defined';
     }
 
     public function save( $value, Request $request ) {
