@@ -31,6 +31,9 @@ Route::group(['middleware' => ['cors']], function () {
         Route::post('deleteBook','BookController@postDelete');
         Route::post('updateProfile','UserController@postUpdateProfile');
 
+        Route::get('questions','CompetitionController@getQuestions');
+        Route::post('answers','CompetitionController@postAnswers');
+
         Route::get('profile','UserController@postUpdateProfile');
         Route::get('history','BookController@getHistory');
         Route::get('rankings','UserController@getRankings');
