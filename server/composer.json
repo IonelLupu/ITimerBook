@@ -26,9 +26,9 @@
         ],
         "psr-4": {
 
-            "JCWolf\\Dashboard\\": "F:/Dropbox/Cave/packages/packages/JCWolf/Dashboard/src",
-            "JCWolf\\Autoform\\": "F:/Dropbox/Cave/packages/packages/JCWolf/Autoform/src",
-            "JCWolf\\DataModeler\\": "F:/Dropbox/Cave/packages/packages/JCWolf/DataModeler/src",
+            "JCWolf\\Dashboard\\": "packages/JCWolf/Dashboard/src",
+            "JCWolf\\Autoform\\": "packages/JCWolf/Autoform/src",
+            "JCWolf\\DataModeler\\": "packages/JCWolf/DataModeler/src",
 
             "App\\": "app/"
         }
