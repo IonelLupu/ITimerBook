@@ -165,17 +165,19 @@
 			<table style="width:50%" class="home-table">
 				<tr>
 					<th>
-						<a href="/#/app/competitionPresentation">
+						<span ng-click="goToCompetition()">
 							<h2 style="text-align: center"> Adauga in colectia ta</h2>
 
-							<h4 style="text-align: center"> "{{competition.prize.title}}" de  "{{competition.prize.author}}" </h4>
+							<h4 style="text-align: center"> "{{competition.rewardBook_name}}" de  "{{competition.rewardBook_author}}" </h4>
 
-							<img style="width:30%"
-							     src="http://static.elefant.ro/images/57/160457/de-la-idee-la-bani-editia-a-ii-a_1_fullsize.jpg">
+							<!--<img style="width:30%"-->
+							     <!--src="http://static.elefant.ro/images/57/160457/de-la-idee-la-bani-editia-a-ii-a_1_fullsize.jpg">-->
+							<img style="width:200px"
+							     ng-src="http://localhost:8000/storage/{{ competition.rewardBook_image }}">
 
-							<p style="text-align: center">Pentru asta, citeste cartea "{{competition.book}}" de "{{competition.author}}" si ai sansa sa iti
+							<p style="text-align: center">Pentru asta, citeste cartea "{{competition.bookToRead_name}}" de "{{competition.bookToRead_author}}" si ai sansa sa iti
 								imbunatateste performanta si sa castigi garantat {{competition.points}} puncte !</p>
-						</a>
+						</span>
 					</th>
 				</tr>
 			</table>

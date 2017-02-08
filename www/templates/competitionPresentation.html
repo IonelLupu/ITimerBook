@@ -11,12 +11,12 @@
         <p  class="presentation" style="  margin-top: 70px;"> </p>
 
         <h4 class="presentation">
-               Participarea la concurs consta in citirea cartii "{{competition.book}}" de "{{competition.author}}".
+               Participarea la concurs consta in citirea cartii "{{competition.bookToRead_name}}" de "{{competition.bookToRead_author}}".
         </h4>
          <h4 class="presentation">
              Prin citirea cartii primesti garantat {{competition.points}} puncte.
              <br>
-            Pentru castigarea premiului cel mare, cartea "{{competition.prize.title}}" de "{{competition.prize.author}}" participa la quiz pana la data de {{competition.ends_at}}.
+            Pentru castigarea premiului cel mare, cartea "{{competition.rewardBook_name}}" de "{{competition.rewardBook_author}}" participa la quiz pana la data de {{competition.ends_at}}.
         </h4>
 
         <p class="presentation" style="  margin-top: 30px;"> </p>
@@ -37,9 +37,9 @@
             <!--<button type="button" style="  padding: 15px; width:40%"-->
                     <!--onclick="participa()"><b>Participa</b></button>-->
 
-            <a type="button" class="button" style="width: 40%;" href="#/app/competition">
+            <span type="button" class="button" style="width: 40%;" href="#/app/competition" ng-click="participate()">
                 Participa
-            </a>
+            </span>
         </div>
 
     </ion-content>

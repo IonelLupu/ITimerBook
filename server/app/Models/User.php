@@ -22,10 +22,9 @@ class User extends Model implements
 	use Authenticatable, CanResetPassword;
 	use Notifiable, EntrustUserTrait;
 
-
 	public $timestamps = false;
 
-	protected $appends = ['level'];
+	protected $appends = ['level','isParticipant'];
 
 	protected $with = ['categories'];
 
@@ -34,22 +33,24 @@ class User extends Model implements
 	 *
 	 * @var array
 	 */
-	protected $fillable = [
-		'firstName', 'lastName', 'email', 'password', 'gender','address','minutesForReading',
-	];
+	protected $fillable
+		= [
+			'firstName', 'lastName', 'email', 'password', 'gender', 'address', 'minutesForReading',
+		];
 
 	/**
 	 * The attributes that should be hidden for arrays.
 	 *
 	 * @var array
 	 */
-	protected $hidden = [
-		'password', 'remember_token',
-	];
+	protected $hidden
+		= [
+			'password', 'remember_token',
+		];
 
 	public function categories()
 	{
-		return $this->belongsToMany(Category::class, 'users_categories');
+		return $this->belongsToMany(Category::class);
 	}
 
 	public function books()
@@ -57,6 +58,10 @@ class User extends Model implements
 		return $this->hasMany(Book::class);
 	}
 
+	public function participant()
+	{
+		return $this->hasOne(Participant::class);
+	}
 	public function notFinishedBooks()
 	{
 		return $this->books()->where('finished', 0)->get();
@@ -74,7 +79,20 @@ class User extends Model implements
 		if ($this->points > 6000 && $this->points <= 10000)
 			return 'Avansat';
 
-		if ($this->points > 10000)
+//		if ($this->points > 10000)
 			return 'Expert';
 	}
+
+	public function getIsParticipantAttribute()
+	{
+		$competition = Competition::with('participants')->current()->first();
+
+		foreach ($competition->participants as $participant){
+			if($participant->user_id == $this->id)
+				return 1;
+		}
+
+		return 0;
+	}
+
 }

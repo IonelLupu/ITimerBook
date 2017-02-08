@@ -13,7 +13,7 @@ class CreateUsersCagetoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_categories', function (Blueprint $table) {
+        Schema::create('category_user', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('user_id')->unsigned();
@@ -31,6 +31,6 @@ class CreateUsersCagetoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_categories');
+        Schema::dropIfExists('category_user');
     }
 }

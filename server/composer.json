@@ -1,10 +1,7 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": [
-        "framework",
-        "laravel"
-    ],
+    "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -12,9 +9,9 @@
         "laravel/framework": "5.3.*",
         "barryvdh/laravel-cors": "^0.8.2",
         "tymon/jwt-auth": "^0.5.9",
-        "doctrine/dbal": "^2.5",
-        "zizaco/entrust": "dev-laravel-5",
-        "laravelcollective/html": "^5.3"
+        "doctrine/dbal"          : "^2.5",
+        "zizaco/entrust"         : "dev-laravel-5",
+        "laravelcollective/html" : "^5.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -28,9 +25,11 @@
             "database"
         ],
         "psr-4": {
-            "JCWolf\\Dashboard\\": "packages/JCWolf/Dashboard/src",
-            "JCWolf\\Autoform\\": "packages/JCWolf/Autoform/src",
-            "JCWolf\\DataModeler\\": "packages/JCWolf/DataModeler/src",
+
+            "JCWolf\\Dashboard\\": "F:/Dropbox/Cave/packages/packages/JCWolf/Dashboard/src",
+            "JCWolf\\Autoform\\": "F:/Dropbox/Cave/packages/packages/JCWolf/Autoform/src",
+            "JCWolf\\DataModeler\\": "F:/Dropbox/Cave/packages/packages/JCWolf/DataModeler/src",
+
             "App\\": "app/"
         }
     },

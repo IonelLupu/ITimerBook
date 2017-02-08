@@ -16,8 +16,13 @@ app.service('Server', function ($rootScope, $http, toastr) {
 			},
 			data   : data
 		}).error(function (resp) {
-			if( !resp )
+			console.log("error ->", resp);
+			if (!resp)
 				return console.error("Fatal Server error");
+			if (resp.error && resp.error != 'token_not_provided') {
+				return toastr.error(resp.error);
+			}
+			
 			var firstError = resp[Object.keys(resp)[0]];
 			if (firstError.constructor == Array) {
 				toastr.error(firstError[0]);
@@ -46,7 +51,7 @@ app.service('Server', function ($rootScope, $http, toastr) {
 	};
 	
 	this.getUser = function () {
-		var user = localStorage.getItem('_user')
+		var user = localStorage.getItem('_user');
 		if (user && user != 'undefined') {
 			return JSON.parse(user);
 		}

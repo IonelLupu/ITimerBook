@@ -48,6 +48,9 @@ class Handler extends ExceptionHandler
 	    if ( $exception instanceof HttpException && $exception->getStatusCode() == 403 )
 		    return redirect()->to( '/admin/login' );
 
+	    if ($request->expectsJson()) {
+		    return response()->json(['error' => $exception->getMessage()], 401);
+	    }
         return parent::render($request, $exception);
     }
 

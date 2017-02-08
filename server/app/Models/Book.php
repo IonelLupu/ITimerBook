@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
+use JCWolf\DataModeler\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
@@ -66,7 +66,12 @@ class Book extends Model
 
 	public function getSupposedProgressPagesAttribute()
 	{
-		return intval($this->supposedProgressPercent / 100 * $this->pages);
+		$supposedProgressPages = intval($this->supposedProgressPercent / 100 * $this->pages);
+
+		if($supposedProgressPages > $this->pages)
+			$supposedProgressPages = $this->pages;
+
+		return $supposedProgressPages;
 	}
 
 	public function getRemainingDaysAttribute()

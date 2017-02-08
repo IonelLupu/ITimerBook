@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use JCWolf\DataModeler\Model;
 
 class Participant extends Model
 {
-    //
+
+	public $timestamps = false;
 }

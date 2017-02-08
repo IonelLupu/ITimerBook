@@ -38,6 +38,9 @@ Route::group(['middleware' => ['cors']], function () {
         Route::get('history','BookController@getHistory');
         Route::get('rankings','UserController@getRankings');
 
+        Route::get('competition','CompetitionController@getCompetition');
+        Route::post('participate','CompetitionController@postParticipate');
+
     });
 
 });

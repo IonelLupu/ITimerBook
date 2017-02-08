@@ -1,4 +1,4 @@
-app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Server, toastr) {
+app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, $state, Server, toastr) {
 	
 	Server.updateUser();
 	
@@ -39,7 +39,7 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 						}
 						Server.post("updatePages", data).success(function (bookmark) {
 							
-							toastr.success("Numarul de pagini a fost actualizat cu success!")
+							toastr.success("Numarul de pagini a fost actualizat cu success!");
 							var book   = $scope.books.find(function (book) {
 								return book.id == id
 							});
@@ -59,14 +59,14 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 			id: bookId
 		};
 		Server.post("finish", data).success(function (points) {
-			toastr.success("Felicitari! Ai castigat " + points + " puncte!")
+			toastr.success("Felicitari! Ai castigat " + points + " puncte!");
 			$scope.update()
 		});
 	};
 	
 	$scope.deleteBook = function (bookId) {
 		Server.post('deleteBook', {id: bookId}).success(function () {
-			toastr.success("Cartea a fost stearsa cu succes!")
+			toastr.success("Cartea a fost stearsa cu succes!");
 			$scope.update()
 		})
 	};
@@ -86,17 +86,34 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, Se
 		if (value == undefined)
 			value = 0;
 		return value + '%';
-	}
-    $scope.competition = {
-        starts_at :"19.12.16",
-        ends_at :"25.12.16",
-        points : "300",
-        prize : {
-            title : "De la idee la bani",
-            author: "Napoleon Hill",
-        },
-        book:"Maytreyi",
-        author:"Mircea Eliade"
-
-    }
+	};
+	
+	$scope.goToCompetition = function(){
+		var user = Server.getUser();
+	
+		console.log("user ->",user);
+		if(user.isParticipant)
+			return $state.go("app.competition");
+		
+		return $state.go("app.competitionPresentation");
+		
+	};
+	
+	Server.get('competition').success(function(competition){
+	
+		$scope.competition = competition;
+	});
+	
+    //$scope.competition = {
+    //    starts_at :"19.12.16",
+    //    ends_at :"25.12.16",
+    //    points : "300",
+    //    prize : {
+    //        title : "De la idee la bani",
+    //        author: "Napoleon Hill"
+    //    },
+    //    book:"Maytreyi",
+    //    author:"Mircea Eliade"
+    //};
+    
 });
