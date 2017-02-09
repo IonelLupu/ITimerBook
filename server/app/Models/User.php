@@ -33,8 +33,7 @@ class User extends Model implements
 	 *
 	 * @var array
 	 */
-	protected $fillable
-		= [
+	protected $fillable= [
 			'firstName', 'lastName', 'email', 'password', 'gender', 'address', 'minutesForReading',
 		];
 
@@ -43,8 +42,7 @@ class User extends Model implements
 	 *
 	 * @var array
 	 */
-	protected $hidden
-		= [
+	protected $hidden= [
 			'password', 'remember_token',
 		];
 
@@ -87,10 +85,11 @@ class User extends Model implements
 	{
 		$competition = Competition::with('participants')->current()->first();
 
-		foreach ($competition->participants as $participant){
-			if($participant->user_id == $this->id)
-				return 1;
-		}
+		if($competition)
+			foreach ($competition->participants as $participant){
+				if($participant->user_id == $this->id)
+					return 1;
+			}
 
 		return 0;
 	}
