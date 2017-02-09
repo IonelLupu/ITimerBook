@@ -1,9 +1,10 @@
 app.controller('RankingController', function($scope, $state, $stateParams, toastr, Server) {
-    Server.get("ranking").success(function(resp){
+    Server.get("rankings").success(function(resp){
         $scope.users = resp;
     })
 
-    $scope.users = [
+
+    /*$scope.users = [
 
         {
            firstName:"Gigi",
@@ -22,5 +23,5 @@ app.controller('RankingController', function($scope, $state, $stateParams, toast
             lastName:"Muta",
             points:100
         },
-    ]
+    ]*/
 });

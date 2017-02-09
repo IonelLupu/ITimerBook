@@ -18,7 +18,9 @@ class UserController extends Controller
 
 	public function getRankings()
 	{
-		return $this->user->orderBy('points','DESC')->get();
+        return $this->user->whereHas('roles',function($query){
+            $query->where("name","admin");
+		},'<','1')->orderBy('points','DESC')->get();
     }
 
     public function postUpdateProfile(Request $request)

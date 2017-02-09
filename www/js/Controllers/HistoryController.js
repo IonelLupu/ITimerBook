@@ -3,7 +3,7 @@ app.controller('HistoryController', function($scope, $state, $stateParams, toast
         $scope.books = resp;
     })
 
-    $scope.books = [
+  /*  $scope.books = [
 
         {
             id:"1",
@@ -28,5 +28,5 @@ app.controller('HistoryController', function($scope, $state, $stateParams, toast
             points: 50,
            ends_at:"18.12.2016"
         },
-    ]
+    ]*/
 });

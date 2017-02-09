@@ -72,7 +72,7 @@ class BookController extends Controller
 		// update puncte
         $totalPoints = $book->getPoints()['points'] + $book->getPoints()['bonus'];
 
-        $this->user->points += $totalPoints;
+        $this->user->points += round($totalPoints);
 
 		$this->user->save();
 
@@ -88,7 +88,8 @@ class BookController extends Controller
 
 	public function getHistory()
 	{
-		return $this->user->books()->finishedBooks()->orderBy('added_at','DESC')->get();
+		return $this->user->books()->finishedBooks()->get();
+//		return $this->user->books()->finishedBooks()->orderBy('added_at','DESC')->get();
 	}
 }
 
