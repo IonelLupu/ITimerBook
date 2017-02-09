@@ -1,7 +1,5 @@
 app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, $state, Server, toastr) {
 	
-	Server.updateUser();
-	
 	$scope.contentLoaded = false;
 	
 	$scope.books = [];
@@ -91,7 +89,6 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, $s
 	$scope.goToCompetition = function(){
 		var user = Server.getUser();
 	
-		console.log("user ->",user);
 		if(user.isParticipant)
 			return $state.go("app.competition");
 		

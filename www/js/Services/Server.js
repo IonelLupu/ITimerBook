@@ -16,10 +16,10 @@ app.service('Server', function ($rootScope, $http, toastr) {
 			},
 			data   : data
 		}).error(function (resp) {
-			console.log("error ->", resp);
+
 			if (!resp)
 				return console.error("Fatal Server error");
-			if (resp.error && resp.error != 'token_not_provided') {
+			if (resp.error && (resp.error != 'token_not_provided' && resp.error != 'token_expired')) {
 				return toastr.error(resp.error);
 			}
 			
