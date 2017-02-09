@@ -115,7 +115,7 @@ class CompetitionController extends Controller
 		$competition = Competition::with('participants')->current()->first();
 
 		if ($competition->min_points > $this->user->points)
-			throw new \Exception("Nu ai destule puncte ptr a intra in concurs");
+			throw new \Exception("Ai nevoie de cel putin ".$competition->min_points." pentru a intra in concurs");
 
 		foreach ($competition->participants as $participant) {
 			if ($participant->user_id == $this->user->id)

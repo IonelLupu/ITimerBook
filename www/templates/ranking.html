@@ -1,28 +1,27 @@
 <ion-view view-title="Clasament">
-    <ion-content>
+	<ion-content>
 
-        <style>
+		<style>
 
-			.ranking-number{
-                text-align: left;
-            }
-			.ranking-name, .ranking-points{
-                text-align: center;
-            }
-        </style>
+			.ranking-number {
+				text-align: left;
+			}
 
-        <div class="list" ng-repeat="user in users">
+			.ranking-name, .ranking-points {
+				text-align: center;
+			}
+		</style>
 
-            <a class="item item-avatar" href="#">
+		<div class="list" ng-repeat="user in users">
+
+            <span class="item item-avatar" href="#">
 				<h1 class="ranking-number">{{$index+1}}</h1>	
                 <h3 class="ranking-name">Nume utilizator: {{user.firstName}} {{user.lastName}}</h3>
                  <p class="ranking-points">Puncte: {{user.points}}</p>
 
+            </span>
 
-            </a>
+		</div>
 
-
-        </div>
-
-    </ion-content>
+	</ion-content>
 </ion-view>

@@ -215,3 +215,7 @@ progress {
 *[type="button"],button,.button{
     border: 1px solid #cfcdcd;
 }
+
+.item-floating-label .input-label.has-input{
+    color: #000;
+}
