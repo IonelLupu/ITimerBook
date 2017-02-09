@@ -51,9 +51,9 @@ class Book extends Model
 		return $this->getPoints()['points'];
 	}
 
-	public function scopeFinishedBooks()
+	public function scopeFinishedBooks($query)
 	{
-		return $this->where('finished', 1);
+		return $query->where('finished', 1);
 	}
 
 	public function getSupposedProgressPercentAttribute()
