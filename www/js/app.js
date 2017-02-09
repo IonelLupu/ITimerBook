@@ -48,7 +48,7 @@ var app = angular.module('starter', ['ionic', 'starter.controllers', 'toastr'])
 						templateUrl: 'templates/home.html',
 						controller : 'HomeController'
 					}
-				},
+				}
 				//reload: true,
 				//cache: false,
 			})

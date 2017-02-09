@@ -75,7 +75,7 @@ app.controller('HomeController', function ($scope, $stateParams, $ionicPopup, $s
 		
 		var currentProgress = progress * maxProgress;
 		
-		return "hsla(" + currentProgress + ",100%,50%,1)";
+		return "hsla(" + currentProgress + ",60%,70%,1)";
 	};
 	
 	$scope.getProgressWidth = function (currentPage, pages) {

@@ -20,6 +20,7 @@ class Competition extends Model
 	public function getPointsAttribute()
 	{
 		return $this->bookToRead_pages;
+
 	}
 
 	public function scopeCurrent($query)
@@ -28,6 +29,15 @@ class Competition extends Model
 			->where(function ($query) {
 				$query->where('starts_at', '<=', Carbon::now());
 				$query->where('ends_at', '>=', Carbon::now());
+			})
+			->orderBy('ends_at','DESC');
+	}
+
+	public function scopeLast($query)
+	{
+		return $query
+			->where(function ($query) {
+				$query->where('ends_at', '<=', Carbon::now());
 			})
 			->orderBy('ends_at','DESC');
 	}

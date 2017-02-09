@@ -25,6 +25,7 @@ class CompetitionController extends Controller
 		$questions = [
 
 			[
+				'competition_id' => 1,
 				'body'           => 'Care este capitala Frantei ?',
 				'answer1'        => 'Nice',
 				'answer2'        => 'Lyon',
@@ -34,6 +35,7 @@ class CompetitionController extends Controller
 			],
 
 			[
+				'competition_id' => 1,
 				'body'           => 'Care este capitala Angliei ?',
 				'answer1'        => 'Manchester',
 				'answer2'        => 'Londra',
@@ -43,6 +45,7 @@ class CompetitionController extends Controller
 			],
 
 			[
+				'competition_id' => 1,
 				'body'           => 'Care este capitala Spaniei ?',
 				'answer1'        => 'Madrid',
 				'answer2'        => 'Barcelona',
@@ -52,6 +55,7 @@ class CompetitionController extends Controller
 			],
 
 			[
+				'competition_id' => 1,
 				'body'           => 'Care este capitala Germaniei ?',
 				'answer1'        => 'Koln',
 				'answer2'        => 'Munchen',
@@ -61,6 +65,7 @@ class CompetitionController extends Controller
 			],
 
 			[
+				'competition_id' => 1,
 				'body'           => 'Care este capitala Italiei ?',
 				'answer1'        => 'Florence',
 				'answer2'        => 'Milan',
@@ -71,7 +76,14 @@ class CompetitionController extends Controller
 
 		];
 
-		return $questions;
+		$competition = Competition::current()->first();
+
+		foreach ($questions as $question){
+			$competition->questions()->save(Question::create($question));
+		}
+
+//		return $questions;
+		return $competition->questions()->get(["answer1", "answer2", "answer3", "answer4", "body"]);
 	}
 
 	public function postAnswers(Request $request)
@@ -79,23 +91,31 @@ class CompetitionController extends Controller
 
 		$answers = $request->get("answers");
 
+
+		$competition = Competition::current()->first();
+		$questions   = $competition->questions;
+
 		$collectCorrectAnswers = 0;
-
-		$questions = $this->getQuestions();
-
 		foreach ($questions as $index => $question) {
 			if ($answers[ $index ] == $question['correct_answer'])
 				$collectCorrectAnswers++;
 		}
 
-		return $collectCorrectAnswers;
 
+		$this->user->participant->ended_quiz_at        = Carbon::now();
+		$this->user->participant->correct_quiz_answers = $collectCorrectAnswers;
+		$this->user->participant->save();
+
+		return $collectCorrectAnswers;
 	}
 
 	public function postParticipate()
 	{
 
 		$competition = Competition::with('participants')->current()->first();
+
+		if ($competition->min_points > $this->user->points)
+			throw new \Exception("Nu ai destule puncte ptr a intra in concurs");
 
 		foreach ($competition->participants as $participant) {
 			if ($participant->user_id == $this->user->id)
@@ -122,6 +142,16 @@ class CompetitionController extends Controller
 		);
 
 		return "true";
+	}
+
+	public function postTakeQuiz()
+	{
+		if ($this->user->participant->took_quiz)
+			throw new \Exception("Poti raspunde doar o singura data la intrebarile concursului!");
+
+		$this->user->participant->started_quiz_at = Carbon::now();
+		$this->user->participant->took_quiz       = true;
+		$this->user->participant->save();
 	}
 
 }

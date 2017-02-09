@@ -1,91 +1,9 @@
 <ion-view view-title="ITimerBook">
 
-	<!--<ion-nav-bar class="bar-balanced">-->
-		<!--<ion-side-menu side="left">-->
-		<!--</ion-side-menu>-->
-	<!--</ion-nav-bar>-->
-
-	<!--<ion-nav-bar class="bar-balanced">-->
-		<!--<ion-nav-buttons side="left">-->
-			<!--<button menu-toggle="left" class="button-icon icon ion-navicon"></button>-->
-		<!--</ion-nav-buttons>-->
-	<!--</ion-nav-bar>-->
-
 	<ion-content>
 
 		<style>
 
-
-			img {
-				display: block;
-				margin: auto;
-			}
-
-			table.home-table, th, td {
-				margin: auto;
-				border: 3px solid #eee;
-				text-align: left;
-				padding: 15px;
-				width: 100%;
-			}
-
-			h2 {
-				text-align: center;
-			}
-
-			.dropdown-content {
-				display: none;
-				position: absolute;
-				background-color: white;
-				border-color: gray;
-				min-width: 160px;
-				box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
-				top: 120%;
-				z-index: 999;
-			}
-
-			.dropdown:hover .dropdown-content {
-				position: absolute;
-				display: block;
-			}
-
-			.dropdown {
-				position: relative;
-				display: flex;
-			}
-
-			.book-content {
-				flex: 1;
-			}
-
-			.book-title{
-				font-size: 20px;
-				font-weight: bolder;
-			}
-			.book-options {
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				padding-left: 10px;
-			}
-
-			progress{
-				margin: 5px auto;
-			}
-
-			.bookmark{
-				font-weight: bolder;
-				font-size: 15px;
-			}
-			.info-table{
-				width: 100%;
-				font-size: 30px;
-			}
-
-			.info-table tr td{
-				width: 50%;
-				border: none;
-			}
 
 		</style>
 
@@ -106,7 +24,6 @@
 				</tr>
 			</table>
 
-
 			<h3 ng-if="books.length == 0" class="text-center">Nu ai nici o carte.</h3>
 			<!--<h3 ng-if="books.length > 0">Status:</h3>-->
 
@@ -126,11 +43,13 @@
 										Ar fi trebuit sa fiu pagina: {{book.supposedProgressPages}} din {{book.pages}}
 										<span style="float: right;">Mai ai {{ book.remainingDays }} zile ramase</span>
 										<div class="progress">
-											<div class="progress-bar" ng-style="{'backgroundColor' : getProgressColor( book.supposedProgressPages / book.pages   ) , 'width' : getProgressWidth(book.supposedProgressPages,book.pages) }"></div>
+											<div class="progress-bar"
+											     ng-style="{'backgroundColor' : getProgressColor( book.supposedProgressPages / book.pages   ) , 'width' : getProgressWidth(book.supposedProgressPages,book.pages) }"></div>
 										</div>
 									</span>
 
-									<span class="book-progress text-center" ng-click="showPopup(book.id)" style="cursor:pointer">
+									<span class="book-progress text-center" ng-click="showPopup(book.id)"
+									      style="cursor:pointer">
 										<span> Am ajuns la pagina: <span class="bookmark">{{book.bookmark}}</span> din {{book.pages}}</span>
 										<div class="progress">
 											<div class="progress-bar"
@@ -140,7 +59,7 @@
 									</span>
 
 									<!--<p> Timp ramas:-->
-										<!--5 zile si 6 ore-->
+									<!--5 zile si 6 ore-->
 									<!--</p>-->
 								</div>
 							</div>
@@ -166,13 +85,15 @@
 
 			</table>
 
-			<br> <br> <br> <br>
+			<br> <br>
 			<div class="text-center">
 				<a type="button" class="button" style="width: 50%;" href="#/app/addBook">
 					Adauga carte
 				</a>
 			</div>
+			<br> <br>
 			<p style="  margin-top: 20px;"></p>
+
 
 			<table style="width:50%" class="home-table">
 				<tr>
@@ -183,7 +104,7 @@
 							<h4 style="text-align: center"> "{{competition.rewardBook_name}}" de  "{{competition.rewardBook_author}}" </h4>
 
 							<!--<img style="width:30%"-->
-							     <!--src="http://static.elefant.ro/images/57/160457/de-la-idee-la-bani-editia-a-ii-a_1_fullsize.jpg">-->
+							<!--src="http://static.elefant.ro/images/57/160457/de-la-idee-la-bani-editia-a-ii-a_1_fullsize.jpg">-->
 							<img style="width:200px"
 							     ng-src="http://localhost:8000/storage/{{ competition.rewardBook_image }}">
 

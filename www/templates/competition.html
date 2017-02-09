@@ -39,23 +39,25 @@
 		</style>
 
 		<div class="container">
+			<br>
+			<br>
+			<h3 class="text-center">Pentru a intra in posesia premiului, citeste cartea {{competition.bookToRead_name }} scrisa de {{competition.bookToRead_author }} !!!</h3>
 
 			<img style="display: block;margin: 0 auto;" width="300" ng-src="http://localhost:8000/storage/{{ competition.rewardBook_image }}">
 
-
-			<div class="data">
-
-				<table class="table" style="width: 100%;">
+			<br>
+			<br>
+				<table class="table" style="width: 100%; white-space: nowrap; ">
 					<tr>
-						<td>Data Incepere</td>
+						<td>Data incepere</td>
 						<td>{{ competition.starts_at }}</td>
 					</tr>
 					<tr>
-						<td>Data Incepere</td>
+						<td>Data sfarsit</td>
 						<td>{{ competition.ends_at }}</td>
 					</tr>
 					<tr>
-						<td>Puncte castigate</td>
+						<td>Puncte recompensa</td>
 						<td>{{ competition.points }}</td>
 					</tr>
 					<tr>
@@ -68,22 +70,20 @@
 				<!--<h3>Data sfarsit:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{competition.ends_at }}</h3><br>-->
 				<!--<h3>Puncte castigate: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{competition.points }}</h3><br>-->
 				<!--<h3>Premiu:Cartea {{competition.prize.title }} scrisa de&nbsp {{competition.prize.author }}</h3> <br>-->
-				<!--<br>-->
+				<!--<br>-
 
-				<h3>Pentru a intra in posesia premiului, citeste cartea {{competition.bookToRead_name }} scrisa de {{competition.bookToRead_author }} !!!</h3> <br> <br>
-			</div>
+			<!--<h1 style="text-align: center">Quiz-ul va aparea in: </h1>-->
 
-			<h1 style="text-align: center">Quiz-ul va aparea in: </h1>
+			<!--<div class="time">-->
+				<!--<h2>1 zi si 2 ore</h2>-->
+			<!--</div>-->
 
-			<div class="time">
-				<h2>1 zi si 2 ore</h2>
-			</div>
-
-			<br> <br>
+			<br>
+			<br>
 			<div class="text-center">
-				<a type="button" class="button" style="width: 50%;" href="#/app/quiz">
+				<span type="button" class="button" style="width: 50%;" href="#/app/quiz" ng-click="takeQuiz()">
 					Participa la QUIZ
-				</a>
+				</span>
 			</div>
 		</div>
 

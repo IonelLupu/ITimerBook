@@ -15,6 +15,8 @@ class CreateCompetitionsTable extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('min_points');
+            $table->boolean('finished',0);
             $table->datetime('starts_at');
             $table->datetime('ends_at');
 

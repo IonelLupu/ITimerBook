@@ -17,10 +17,10 @@ app.controller('CompetitionPresentationController', function ($scope, toastr, Se
 		Server.post('participate').success(function (canParticipate) {
 			if (canParticipate) {
 				toastr.success("Ai fost inregistrat cu succes in concurs.");
+				Server.updateUser();
 				return $state.go("app.competition");
 			}
 			
-			Server.updateUser();
 		});
 	}
 });
